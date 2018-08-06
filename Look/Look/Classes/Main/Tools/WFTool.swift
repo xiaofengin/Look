@@ -21,7 +21,10 @@ extension WFTool{
         
         //当前时间的时间戳
         let timeInterval:TimeInterval = Date().timeIntervalSince1970
-        startTime = "\(timeInterval)"
-        print(startTime)
+        let  startTimeStr = String(format: "%.6f", timeInterval)
+        print(startTimeStr)
+        UserDefaults.standard.set(startTimeStr, forKey: startTimeUD)
     }
+   
+    
 }

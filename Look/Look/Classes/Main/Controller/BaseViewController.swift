@@ -42,17 +42,17 @@ class BaseViewController: UIViewController {
     
    @objc func goBack() -> Void {
         
-        _ =  navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
-        self.navigationController?.navigationBar.backgroundColor = UIColor.green
-        self.navigationController?.navigationBar.barTintColor = UIColor.orange
+        self.navigationController?.navigationBar.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white,NSAttributedStringKey.font:UIFont(name: "Helvetica-Bold", size: 19.0)!]
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white,NSAttributedStringKey.font:UIFont(name: "Helvetica-Bold", size: 19.0)!]
         if (view == self) {
             // 背景设置为黑色
             navigationController?.navigationBar.tintColor = UIColor.white
@@ -68,7 +68,11 @@ class BaseViewController: UIViewController {
         
         view.backgroundColor = UIColor.groupTableViewBackground
 
-        automaticallyAdjustsScrollViewInsets = false;
+//        automaticallyAdjustsScrollViewInsets = false
+        
+        if (navigationController?.viewControllers.count)! > 1 {
+              navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "返回"), style: .plain, target: self, action: #selector(goBack))
+        }
     }
 
     override func didReceiveMemoryWarning() {

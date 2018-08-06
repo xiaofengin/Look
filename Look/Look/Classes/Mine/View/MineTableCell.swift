@@ -11,6 +11,7 @@ import UIKit
 
 class MineTableCell: UITableViewCell, RegisterCellFromNib {
 
+    @IBOutlet weak var iconImageV: UIImageView!
     @IBOutlet weak var mainTitleLab: UILabel!
     @IBOutlet weak var subtitleLab: UILabel!
     override func awakeFromNib() {

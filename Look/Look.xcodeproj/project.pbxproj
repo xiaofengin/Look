@@ -12,7 +12,6 @@
 		0A0AD78F2111A40500A6A9AE /* WFNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AD7772111A40400A6A9AE /* WFNetworkRequest.swift */; };
 		0A0AD7902111A40500A6A9AE /* MineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AD77B2111A40400A6A9AE /* MineVC.swift */; };
 		0A0AD7912111A40500A6A9AE /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AD77D2111A40400A6A9AE /* UIKit+Extension.swift */; };
-		0A0AD7922111A40500A6A9AE /* MineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AD77F2111A40400A6A9AE /* MineModel.swift */; };
 		0A0AD7932111A40500A6A9AE /* MineTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AD7812111A40400A6A9AE /* MineTableCell.swift */; };
 		0A0AD7942111A40500A6A9AE /* MineTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A0AD7822111A40400A6A9AE /* MineTableCell.xib */; };
 		0A0AD7952111A40500A6A9AE /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AD7842111A40400A6A9AE /* Const.swift */; };
@@ -20,6 +19,16 @@
 		0A0AD7972111A40500A6A9AE /* MyTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AD7862111A40400A6A9AE /* MyTabBarVC.swift */; };
 		0A0AD7982111A40500A6A9AE /* VideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AD7892111A40400A6A9AE /* VideoVC.swift */; };
 		0A0AD79C2111B44000A6A9AE /* WFTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0AD79B2111B44000A6A9AE /* WFTool.swift */; };
+		0A1092692115B48B00418E06 /* MeCollectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1092672115B48B00418E06 /* MeCollectVC.swift */; };
+		0A10926A2115B48B00418E06 /* MeCollectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A1092682115B48B00418E06 /* MeCollectVC.xib */; };
+		0A9A4605211702C300E70C5D /* MeCollectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A4604211702C300E70C5D /* MeCollectModel.swift */; };
+		0A9A460821170CB500E70C5D /* MeCollectTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A460621170CB500E70C5D /* MeCollectTableCell.swift */; };
+		0A9A460921170CB500E70C5D /* MeCollectTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A460721170CB500E70C5D /* MeCollectTableCell.xib */; };
+		0AD503092114282D00F5C9E3 /* PlayRecordTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD503072114282D00F5C9E3 /* PlayRecordTableCell.swift */; };
+		0AD5030A2114282D00F5C9E3 /* PlayRecordTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD503082114282D00F5C9E3 /* PlayRecordTableCell.xib */; };
+		0AD5030D211429D100F5C9E3 /* PalyRecordCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD5030B211429D100F5C9E3 /* PalyRecordCollectionCell.swift */; };
+		0AD5030E211429D100F5C9E3 /* PalyRecordCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD5030C211429D100F5C9E3 /* PalyRecordCollectionCell.xib */; };
+		0AD5031021144DB200F5C9E3 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD5030F21144DB200F5C9E3 /* UserModel.swift */; };
 		0AD821052111A0D600A18252 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD821042111A0D600A18252 /* AppDelegate.swift */; };
 		0AD821072111A0D600A18252 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD821062111A0D600A18252 /* ViewController.swift */; };
 		0AD8210A2111A0D600A18252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD821082111A0D600A18252 /* Main.storyboard */; };
@@ -53,7 +62,6 @@
 		0A0AD7772111A40400A6A9AE /* WFNetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WFNetworkRequest.swift; sourceTree = "<group>"; };
 		0A0AD77B2111A40400A6A9AE /* MineVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineVC.swift; sourceTree = "<group>"; };
 		0A0AD77D2111A40400A6A9AE /* UIKit+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
-		0A0AD77F2111A40400A6A9AE /* MineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineModel.swift; sourceTree = "<group>"; };
 		0A0AD7812111A40400A6A9AE /* MineTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineTableCell.swift; sourceTree = "<group>"; };
 		0A0AD7822111A40400A6A9AE /* MineTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineTableCell.xib; sourceTree = "<group>"; };
 		0A0AD7842111A40400A6A9AE /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -61,6 +69,16 @@
 		0A0AD7862111A40400A6A9AE /* MyTabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTabBarVC.swift; sourceTree = "<group>"; };
 		0A0AD7892111A40400A6A9AE /* VideoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoVC.swift; sourceTree = "<group>"; };
 		0A0AD79B2111B44000A6A9AE /* WFTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WFTool.swift; sourceTree = "<group>"; };
+		0A1092672115B48B00418E06 /* MeCollectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeCollectVC.swift; sourceTree = "<group>"; };
+		0A1092682115B48B00418E06 /* MeCollectVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeCollectVC.xib; sourceTree = "<group>"; };
+		0A9A4604211702C300E70C5D /* MeCollectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeCollectModel.swift; sourceTree = "<group>"; };
+		0A9A460621170CB500E70C5D /* MeCollectTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeCollectTableCell.swift; sourceTree = "<group>"; };
+		0A9A460721170CB500E70C5D /* MeCollectTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeCollectTableCell.xib; sourceTree = "<group>"; };
+		0AD503072114282D00F5C9E3 /* PlayRecordTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRecordTableCell.swift; sourceTree = "<group>"; };
+		0AD503082114282D00F5C9E3 /* PlayRecordTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayRecordTableCell.xib; sourceTree = "<group>"; };
+		0AD5030B211429D100F5C9E3 /* PalyRecordCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalyRecordCollectionCell.swift; sourceTree = "<group>"; };
+		0AD5030C211429D100F5C9E3 /* PalyRecordCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PalyRecordCollectionCell.xib; sourceTree = "<group>"; };
+		0AD5030F21144DB200F5C9E3 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		0AD821012111A0D600A18252 /* Look.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Look.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD821042111A0D600A18252 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AD821062111A0D600A18252 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +264,8 @@
 			isa = PBXGroup;
 			children = (
 				0A0AD77B2111A40400A6A9AE /* MineVC.swift */,
+				0A1092672115B48B00418E06 /* MeCollectVC.swift */,
+				0A1092682115B48B00418E06 /* MeCollectVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -253,7 +273,8 @@
 		0A0AD77E2111A40400A6A9AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0A0AD77F2111A40400A6A9AE /* MineModel.swift */,
+				0AD5030F21144DB200F5C9E3 /* UserModel.swift */,
+				0A9A4604211702C300E70C5D /* MeCollectModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,6 +284,12 @@
 			children = (
 				0A0AD7812111A40400A6A9AE /* MineTableCell.swift */,
 				0A0AD7822111A40400A6A9AE /* MineTableCell.xib */,
+				0AD503072114282D00F5C9E3 /* PlayRecordTableCell.swift */,
+				0AD503082114282D00F5C9E3 /* PlayRecordTableCell.xib */,
+				0AD5030B211429D100F5C9E3 /* PalyRecordCollectionCell.swift */,
+				0AD5030C211429D100F5C9E3 /* PalyRecordCollectionCell.xib */,
+				0A9A460621170CB500E70C5D /* MeCollectTableCell.swift */,
+				0A9A460721170CB500E70C5D /* MeCollectTableCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -270,6 +297,7 @@
 		0A0AD7832111A40400A6A9AE /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				0AD821042111A0D600A18252 /* AppDelegate.swift */,
 				0A0AD7842111A40400A6A9AE /* Const.swift */,
 				0A0AD7852111A40400A6A9AE /* MyNavigationVC.swift */,
 				0A0AD7862111A40400A6A9AE /* MyTabBarVC.swift */,
@@ -335,11 +363,10 @@
 			isa = PBXGroup;
 			children = (
 				0A0AD7662111A40400A6A9AE /* Classes */,
-				0AD821042111A0D600A18252 /* AppDelegate.swift */,
-				0AD821062111A0D600A18252 /* ViewController.swift */,
-				0AD821082111A0D600A18252 /* Main.storyboard */,
-				0AD8210B2111A0D700A18252 /* Assets.xcassets */,
 				0AD8210D2111A0D700A18252 /* LaunchScreen.storyboard */,
+				0AD821082111A0D600A18252 /* Main.storyboard */,
+				0AD821062111A0D600A18252 /* ViewController.swift */,
+				0AD8210B2111A0D700A18252 /* Assets.xcassets */,
 				0AD821102111A0D700A18252 /* Info.plist */,
 			);
 			path = Look;
@@ -488,8 +515,12 @@
 			files = (
 				0AD8210F2111A0D700A18252 /* LaunchScreen.storyboard in Resources */,
 				0AD8210C2111A0D700A18252 /* Assets.xcassets in Resources */,
+				0AD5030A2114282D00F5C9E3 /* PlayRecordTableCell.xib in Resources */,
 				0AD8210A2111A0D600A18252 /* Main.storyboard in Resources */,
+				0AD5030E211429D100F5C9E3 /* PalyRecordCollectionCell.xib in Resources */,
 				0A0AD7942111A40500A6A9AE /* MineTableCell.xib in Resources */,
+				0A10926A2115B48B00418E06 /* MeCollectVC.xib in Resources */,
+				0A9A460921170CB500E70C5D /* MeCollectTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,19 +616,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A9A460821170CB500E70C5D /* MeCollectTableCell.swift in Sources */,
 				0A0AD78E2111A40500A6A9AE /* BaseViewController.swift in Sources */,
 				0A0AD78C2111A40400A6A9AE /* HomeVC.swift in Sources */,
 				0A0AD7972111A40500A6A9AE /* MyTabBarVC.swift in Sources */,
+				0AD503092114282D00F5C9E3 /* PlayRecordTableCell.swift in Sources */,
 				0A0AD7962111A40500A6A9AE /* MyNavigationVC.swift in Sources */,
 				0A0AD7982111A40500A6A9AE /* VideoVC.swift in Sources */,
-				0A0AD7922111A40500A6A9AE /* MineModel.swift in Sources */,
 				0A0AD79C2111B44000A6A9AE /* WFTool.swift in Sources */,
+				0A1092692115B48B00418E06 /* MeCollectVC.swift in Sources */,
 				0A0AD7932111A40500A6A9AE /* MineTableCell.swift in Sources */,
 				0A0AD7902111A40500A6A9AE /* MineVC.swift in Sources */,
+				0AD5030D211429D100F5C9E3 /* PalyRecordCollectionCell.swift in Sources */,
+				0AD5031021144DB200F5C9E3 /* UserModel.swift in Sources */,
 				0A0AD78F2111A40500A6A9AE /* WFNetworkRequest.swift in Sources */,
 				0AD821072111A0D600A18252 /* ViewController.swift in Sources */,
 				0A0AD7912111A40500A6A9AE /* UIKit+Extension.swift in Sources */,
 				0AD821052111A0D600A18252 /* AppDelegate.swift in Sources */,
+				0A9A4605211702C300E70C5D /* MeCollectModel.swift in Sources */,
 				0A0AD7952111A40500A6A9AE /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

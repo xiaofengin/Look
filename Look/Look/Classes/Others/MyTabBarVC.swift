@@ -28,10 +28,10 @@ class MyTabBarVC: UITabBarController {
         
         tabBar.tintColor = UIColor.red
         
-        let tabbarArray = [["title":"首页", "imageName":"home_tabbar_32x32_", "selectImage":"home_tabbar_press_32x32_"],
-                           ["title":"发现", "imageName":"video_tabbar_32x32_", "selectImage":"video_tabbar_press_32x32_"],
-                           ["title":"关注", "imageName":"huoshan_tabbar_32x32_", "selectImage":"huoshan_tabbar_press_32x32_"],
-                           ["title":"我的", "imageName":"mine_tabbar_32x32_", "selectImage":"mine_tabbar_press_32x32_"]]
+        let tabbarArray = [["title":"首页", "imageName":"首页-未选中", "selectImage":"首页-选中"],
+                           ["title":"发现", "imageName":"发现-未选中", "selectImage":"发现-选中"],
+                           ["title":"关注", "imageName":"关注-未选中", "selectImage":"关注-选中"],
+                           ["title":"我的", "imageName":"我的-未选中", "selectImage":"我的-选中"]]
         
 
         var i = 0

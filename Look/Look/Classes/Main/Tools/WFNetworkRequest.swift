@@ -31,15 +31,17 @@ extension WFNetworkRequest{
     ///   - params: 参数
     ///   - success: 成功回调
     ///   - failture: 失败回调
-    func ToolRequest(url:String, isPost:Bool = true, params:[String:Any], success:@escaping(_ response :AnyObject)->(), failture:@escaping (_ error :Error)->()) -> (Void) {
+    func ToolRequest(url:String, isPost:Bool = true, params:[String:Any], success:@escaping(_ response :AnyObject)->() ) -> (Void) {
         
         let method = isPost ? HTTPMethod.post:HTTPMethod.get
+        let Params = isPost ? params:nil
         
-        Alamofire.request(url, method: method, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (dataResponse) in
+        Alamofire.request(url, method: method, parameters: Params, encoding: URLEncoding.default, headers: nil).responseJSON { (dataResponse) in
             if(dataResponse.result.isSuccess){
                 success(dataResponse.result.value as AnyObject)
             }else{
-                failture(dataResponse.result.error!)
+                
+                printCtm(url + "\(dataResponse.result.error!)")
             }
         }
     }
