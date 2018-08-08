@@ -31,7 +31,7 @@ extension WFNetworkRequest{
     ///   - params: 参数
     ///   - success: 成功回调
     ///   - failture: 失败回调
-    func ToolRequest(url:String, isPost:Bool = true, params:[String:Any], success:@escaping(_ response :AnyObject)->() ) -> (Void) {
+    func ToolRequest(url:String, isPost:Bool = true, params:[String:Any]?, success:@escaping(_ response :AnyObject)->() ) -> (Void) {
         
         let method = isPost ? HTTPMethod.post:HTTPMethod.get
         let Params = isPost ? params:nil

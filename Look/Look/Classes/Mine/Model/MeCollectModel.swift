@@ -25,6 +25,8 @@ struct MeCollectModel:HandyJSON {
     var publishTime : Int = 0
     var docid : Int = 0
     var videoType : Int = 0
+    var cn : Int = 0
+    var pn : Int = 0
     var streams  = [Streams]()
     var user = User()
     
@@ -43,4 +45,9 @@ struct Streams: HandyJSON {
 }
 struct User:HandyJSON {
     var nickName : String = ""
+    var description : String = ""
+    var photo : String = ""
+    var id : Int = 0
+    var verify : Int = 0
+    var fn : Int = 0
 }

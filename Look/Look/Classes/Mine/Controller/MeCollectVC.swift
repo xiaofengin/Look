@@ -20,10 +20,9 @@ class MeCollectVC: BaseViewController, UITableViewDataSource, UITableViewDelegat
         self.title = "我的收藏"
 
         tableV.wf_registerCell(cell: MeCollectTableCell.self)
-        ///获取用户信息接口
+        ///获取用户收藏信息接口
         let url = "http://api.klm123.com/collection/getCollectionList?src=1000&t=" + (UserDefaults.standard.object(forKey: startTimeUD) as! String) + "&pageNo=1&pageSize=10"
-        let params = ["app": "2","openid": "oeN411c0dILrhE1AsxKI8Hx3ySFs","token": ""]
-        WFNetworkRequest.sharedInstance.ToolRequest(url: url, isPost: false, params: params, success: { (dataDict) in
+        WFNetworkRequest.sharedInstance.ToolRequest(url: url, isPost: false, params: nil, success: { (dataDict) in
             
             let jsonData = JSON(dataDict)
             printCtm(jsonData)

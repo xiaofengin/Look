@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 import Kingfisher
-class MineVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MineVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
  
     @IBOutlet weak var userIconImageV: UIImageView!
     @IBOutlet weak var userNameLab: UILabel!
@@ -28,10 +28,14 @@ class MineVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
+//        UIApplication.shared.statusBarStyle = .lightContent;
+        setStatusBarBackgroundColor(color: UIColor.clear)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
+//        UIApplication.shared.statusBarStyle = .default;
+        setStatusBarBackgroundColor(color: UIColor.white)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

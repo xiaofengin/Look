@@ -70,6 +70,14 @@ class BaseViewController: UIViewController {
 
 //        automaticallyAdjustsScrollViewInsets = false
         
+//        edgesForExtendedLayout = UIRectEdge.top//UIRectEdgeNone;
+//        
+//        extendedLayoutIncludesOpaqueBars = false;
+//        
+//        modalPresentationCapturesStatusBarAppearance = false;
+        
+//        automaticallyAdjustsScrollViewInsets=false;
+        
         if (navigationController?.viewControllers.count)! > 1 {
               navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "返回"), style: .plain, target: self, action: #selector(goBack))
         }
