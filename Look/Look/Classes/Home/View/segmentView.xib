@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="segmentView" customModule="Look" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHd-qr-xRm">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VcE-cx-rFZ">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrW-au-TrQ">
+                                    <rect key="frame" x="0.0" y="41" width="10" height="3"/>
+                                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="10" id="Osg-4l-2e8"/>
+                                        <constraint firstAttribute="height" constant="3" id="V0t-7d-odU"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="hrW-au-TrQ" firstAttribute="leading" secondItem="VcE-cx-rFZ" secondAttribute="leading" id="7XN-7t-GvO"/>
+                                <constraint firstAttribute="width" constant="375" id="r4j-pA-ich"/>
+                                <constraint firstAttribute="bottom" secondItem="hrW-au-TrQ" secondAttribute="bottom" constant="0.5" id="wZj-Kk-8b3"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="VcE-cx-rFZ" firstAttribute="top" secondItem="XHd-qr-xRm" secondAttribute="top" id="JlJ-2V-cpx"/>
+                        <constraint firstAttribute="bottom" secondItem="VcE-cx-rFZ" secondAttribute="bottom" id="YpH-8r-ePD"/>
+                        <constraint firstAttribute="trailing" secondItem="VcE-cx-rFZ" secondAttribute="trailing" id="cTv-fF-ePa"/>
+                        <constraint firstItem="VcE-cx-rFZ" firstAttribute="centerY" secondItem="XHd-qr-xRm" secondAttribute="centerY" id="p3Q-d4-tbc"/>
+                        <constraint firstItem="VcE-cx-rFZ" firstAttribute="leading" secondItem="XHd-qr-xRm" secondAttribute="leading" id="yz0-Oc-hIT"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="XHd-qr-xRm" secondAttribute="bottom" id="100-0s-dhr"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XHd-qr-xRm" secondAttribute="trailing" id="Snq-eJ-Jp5"/>
+                <constraint firstItem="XHd-qr-xRm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="b2G-sD-Tlw"/>
+                <constraint firstItem="XHd-qr-xRm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pWE-vR-bEB"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="scrollV" destination="XHd-qr-xRm" id="Liu-sF-jqn"/>
+                <outlet property="scrollWidth" destination="r4j-pA-ich" id="pdY-ah-s0u"/>
+                <outlet property="subLineX" destination="7XN-7t-GvO" id="iSN-OR-PKB"/>
+                <outlet property="sublineView" destination="hrW-au-TrQ" id="svU-7G-vHu"/>
+                <outlet property="titleView" destination="VcE-cx-rFZ" id="Coq-nK-9i4"/>
+            </connections>
+            <point key="canvasLocation" x="24" y="-316"/>
+        </view>
+    </objects>
+</document>

@@ -19,6 +19,9 @@ class ConcernHeaderView: UIView ,NibLoadable{
     @IBOutlet weak var titleLab: UILabel!
     @IBOutlet weak var headBut: UIButton!
     
+
+    
+    
     var userData = User(){
         didSet{
             userIconImageV.kf.setImage(with: URL(string: userData.photo))

@@ -46,6 +46,14 @@
 		0AD8211A2111A0D700A18252 /* LookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD821192111A0D700A18252 /* LookTests.swift */; };
 		0AD821252111A0D700A18252 /* LookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD821242111A0D700A18252 /* LookUITests.swift */; };
 		0AEC4A302119ED3400875A32 /* FindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC4A2E2119ED3400875A32 /* FindVC.swift */; };
+		0AFC44FD211C0A93000E25F4 /* segmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFC44FC211C0A93000E25F4 /* segmentView.swift */; };
+		0AFC44FF211C0AA0000E25F4 /* segmentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFC44FE211C0AA0000E25F4 /* segmentView.xib */; };
+		0AFC4502211C28E8000E25F4 /* RecommendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFC4500211C28E8000E25F4 /* RecommendVC.swift */; };
+		0AFC4503211C28E8000E25F4 /* RecommendVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFC4501211C28E8000E25F4 /* RecommendVC.xib */; };
+		0AFC4506211C293B000E25F4 /* HotNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFC4504211C293B000E25F4 /* HotNewsVC.swift */; };
+		0AFC4507211C293B000E25F4 /* HotNewsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFC4505211C293B000E25F4 /* HotNewsVC.xib */; };
+		0AFC450A211C2987000E25F4 /* SmallVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFC4508211C2987000E25F4 /* SmallVideoVC.swift */; };
+		0AFC450B211C2987000E25F4 /* SmallVideoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AFC4509211C2987000E25F4 /* SmallVideoVC.xib */; };
 		D83D64FBB9FF2800C384DC8D /* Pods_Look.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55296F7EBCE7B17F3D58DF10 /* Pods_Look.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +120,14 @@
 		0AD821242111A0D700A18252 /* LookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUITests.swift; sourceTree = "<group>"; };
 		0AD821262111A0D700A18252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AEC4A2E2119ED3400875A32 /* FindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindVC.swift; sourceTree = "<group>"; };
+		0AFC44FC211C0A93000E25F4 /* segmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = segmentView.swift; sourceTree = "<group>"; };
+		0AFC44FE211C0AA0000E25F4 /* segmentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = segmentView.xib; sourceTree = "<group>"; };
+		0AFC4500211C28E8000E25F4 /* RecommendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendVC.swift; sourceTree = "<group>"; };
+		0AFC4501211C28E8000E25F4 /* RecommendVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendVC.xib; sourceTree = "<group>"; };
+		0AFC4504211C293B000E25F4 /* HotNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsVC.swift; sourceTree = "<group>"; };
+		0AFC4505211C293B000E25F4 /* HotNewsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HotNewsVC.xib; sourceTree = "<group>"; };
+		0AFC4508211C2987000E25F4 /* SmallVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallVideoVC.swift; sourceTree = "<group>"; };
+		0AFC4509211C2987000E25F4 /* SmallVideoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallVideoVC.xib; sourceTree = "<group>"; };
 		283A962435DB55AE0C6175F1 /* Pods-Look.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Look.release.xcconfig"; path = "Pods/Target Support Files/Pods-Look/Pods-Look.release.xcconfig"; sourceTree = "<group>"; };
 		55296F7EBCE7B17F3D58DF10 /* Pods_Look.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Look.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		734D8F1755EDA3903F273D32 /* Pods-Look.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Look.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Look/Pods-Look.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +186,12 @@
 			isa = PBXGroup;
 			children = (
 				0A0AD7692111A40400A6A9AE /* HomeVC.swift */,
+				0AFC4500211C28E8000E25F4 /* RecommendVC.swift */,
+				0AFC4501211C28E8000E25F4 /* RecommendVC.xib */,
+				0AFC4504211C293B000E25F4 /* HotNewsVC.swift */,
+				0AFC4505211C293B000E25F4 /* HotNewsVC.xib */,
+				0AFC4508211C2987000E25F4 /* SmallVideoVC.swift */,
+				0AFC4509211C2987000E25F4 /* SmallVideoVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -184,6 +206,8 @@
 		0A0AD76B2111A40400A6A9AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0AFC44FC211C0A93000E25F4 /* segmentView.swift */,
+				0AFC44FE211C0AA0000E25F4 /* segmentView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -544,15 +568,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AC1DE2A2117E0FB00AF6CC6 /* ConcernHeaderView.xib in Resources */,
+				0AFC44FF211C0AA0000E25F4 /* segmentView.xib in Resources */,
 				0A9BED5D21188A2A0065325E /* UserTableCell.xib in Resources */,
+				0AFC4507211C293B000E25F4 /* HotNewsVC.xib in Resources */,
 				0AD8210F2111A0D700A18252 /* LaunchScreen.storyboard in Resources */,
 				0AD8210C2111A0D700A18252 /* Assets.xcassets in Resources */,
 				0AD5030A2114282D00F5C9E3 /* PlayRecordTableCell.xib in Resources */,
 				0AC1DE342118268F00AF6CC6 /* UserInfoVC.xib in Resources */,
 				0AD8210A2111A0D600A18252 /* Main.storyboard in Resources */,
 				0AD5030E211429D100F5C9E3 /* PalyRecordCollectionCell.xib in Resources */,
+				0AFC450B211C2987000E25F4 /* SmallVideoVC.xib in Resources */,
 				0A0AD7942111A40500A6A9AE /* MineTableCell.xib in Resources */,
 				0AC1DE2E2117E58E00AF6CC6 /* ConcernTableCell.xib in Resources */,
+				0AFC4503211C28E8000E25F4 /* RecommendVC.xib in Resources */,
 				0A10926A2115B48B00418E06 /* MeCollectVC.xib in Resources */,
 				0A9A460921170CB500E70C5D /* MeCollectTableCell.xib in Resources */,
 			);
@@ -650,6 +678,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AFC44FD211C0A93000E25F4 /* segmentView.swift in Sources */,
 				0A9A460821170CB500E70C5D /* MeCollectTableCell.swift in Sources */,
 				0AC1DE2D2117E58E00AF6CC6 /* ConcernTableCell.swift in Sources */,
 				0A0AD78E2111A40500A6A9AE /* BaseViewController.swift in Sources */,
@@ -660,6 +689,8 @@
 				0A0AD7962111A40500A6A9AE /* MyNavigationVC.swift in Sources */,
 				0A0AD79C2111B44000A6A9AE /* WFTool.swift in Sources */,
 				0A1092692115B48B00418E06 /* MeCollectVC.swift in Sources */,
+				0AFC4506211C293B000E25F4 /* HotNewsVC.swift in Sources */,
+				0AFC4502211C28E8000E25F4 /* RecommendVC.swift in Sources */,
 				0A0AD7932111A40500A6A9AE /* MineTableCell.swift in Sources */,
 				0AC1DE282117E0E900AF6CC6 /* ConcernHeaderView.swift in Sources */,
 				0AC1DE3021181B3400AF6CC6 /* Foundation+Extension.swift in Sources */,
@@ -668,6 +699,7 @@
 				0AD5031021144DB200F5C9E3 /* UserModel.swift in Sources */,
 				0A0AD78F2111A40500A6A9AE /* WFNetworkRequest.swift in Sources */,
 				0AD821072111A0D600A18252 /* ViewController.swift in Sources */,
+				0AFC450A211C2987000E25F4 /* SmallVideoVC.swift in Sources */,
 				0A0AD7912111A40500A6A9AE /* UIKit+Extension.swift in Sources */,
 				0AC1DE332118268F00AF6CC6 /* UserInfoVC.swift in Sources */,
 				0AD821052111A0D600A18252 /* AppDelegate.swift in Sources */,
@@ -851,6 +883,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DCV5F7FELN;
 				INFOPLIST_FILE = Look/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -870,6 +903,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DCV5F7FELN;
 				INFOPLIST_FILE = Look/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
