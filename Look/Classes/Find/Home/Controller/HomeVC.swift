@@ -224,7 +224,7 @@ class HomeVC: BaseViewController, UIScrollViewDelegate {
         
 
         UIView.animate(withDuration: 0.3) {
-//            self.titlevc.view.x = 0;
+            self.titlevc.view.x = 0;
         }
 
     }
