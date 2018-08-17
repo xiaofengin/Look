@@ -18,9 +18,20 @@ class UserTableCell: UITableViewCell, RegisterCellFromNib {
     @IBOutlet weak var praiseBut: UIButton!
     @IBOutlet weak var playProgress: UIProgressView!
     
+    @IBOutlet weak var shareBut: UIButton!
+    @IBOutlet weak var weixinView: UIView!
+    @IBOutlet weak var weixinViewToBottom: NSLayoutConstraint!
+    
+    @IBOutlet weak var usericonView: UIView!
+    @IBOutlet weak var userIconImageV: UIImageView!
+    @IBOutlet weak var VIPImageV: UIImageView!
+    @IBOutlet weak var attentionBut: UIButton!
+    
+    @IBOutlet weak var playerBut: UIButton!
+    
     var myConcern = MeCollectModel(){
         didSet{
-            mainImageV.kf.setImage(with: URL(string: myConcern.cover))
+            playerBut.kf.setImage(with: URL(string: myConcern.cover), for: .normal)
             mainTitleLab.text = myConcern.title
             durationTimeLab.text =  myConcern.duration.convertVideoDuration()
             timeLab.text = myConcern.duration.convertString()

@@ -9,7 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
-
+import SwiftyJSON
 class HomeVC: BaseViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var topView: UIView!
@@ -19,6 +19,12 @@ class HomeVC: BaseViewController, UIScrollViewDelegate {
     
     var current:CGFloat = 0.0
     var isScroll = true
+    
+    let hotNews:HotNewsVC = HotNewsVC()
+    let smallVideo:SmallVideoVC = SmallVideoVC()
+    let titlevc:TitleVC = TitleVC()
+    
+    var titleArray = [TitleModel]()
     
     let disposeBag = DisposeBag()
     /// 懒加载 头部
@@ -38,15 +44,14 @@ class HomeVC: BaseViewController, UIScrollViewDelegate {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
     }
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "首页"
 
         
-        _ = segmentV.rx.observe(CGRect.self, "sublineView.frame").subscribe { (f) in
-//            printCtm(f)
-//            print(f)
-        }
+
         segmentV.frame = CGRect(x: 0, y: 0, width: topView.width, height: 44)
         segmentV.titleWidth = Double((Kwidth-110)/3)
         segmentV.defaultTag = 2;
@@ -54,33 +59,68 @@ class HomeVC: BaseViewController, UIScrollViewDelegate {
         segmentV.segmentSelect = { [weak self] (tag)->() in
             
             printCtm(tag)
+            if tag == 1 {
+                self?.hotNews.hotNewsRequset()
+            }else if tag == 3 {
+                self?.smallVideo.smallVideoRequset()
+            }
             self?.isScroll = false;
             self?.scrollV.setContentOffset(CGPoint(x: Kwidth*CGFloat((tag-1)), y: 0), animated: true)
         }
         self.topView.addSubview(segmentV);
         
-        let hotNews = HotNewsVC()
-        hotNews.view.frame = CGRect(x: 0, y: 0, width: Kwidth, height: scrollView.height)
+//        hotNews = HotNewsVC()
+        hotNews.view.frame = CGRect(x: 0, y: 0, width: scrollV.width, height: scrollView.height)
         self.addChildViewController(hotNews)
-        scrollView.addSubview(hotNews.view)
+        scrollV.addSubview(hotNews.view)
         
         let recommend = RecommendVC()
-        recommend.view.frame = CGRect(x: Kwidth, y: 0, width: Kwidth, height: scrollView.height)
+        recommend.view.frame = CGRect(x: Kwidth, y: 0, width: scrollV.width, height: scrollView.height)
         self.addChildViewController(recommend)
-        scrollView.addSubview(recommend.view)
+        scrollV.addSubview(recommend.view)
         
-        let smallVideo = SmallVideoVC()
-        smallVideo.view.frame = CGRect(x: Kwidth*2, y: 0, width: Kwidth, height: scrollView.height)
+//        let smallVideo = SmallVideoVC()
+        smallVideo.view.frame = CGRect(x: Kwidth*2, y: 0, width: scrollV.width, height: scrollView.height)
         self.addChildViewController(smallVideo)
-        scrollView.addSubview(smallVideo.view)
+        scrollV.addSubview(smallVideo.view)
 
         
-//        scrollV.setContentOffset(CGPoint(x: Kwidth, y: 0), animated: true)
+        titlevc.view.frame = self.view.bounds
+        titlevc.view.x = -Kwidth;
+        titlevc.titleSelect = {[weak self] (cellIndex, data) in
+            
+            let vc = MoreVC()
+            vc.titleArray = data
+            vc.selectCell = cellIndex
+            self?.navigationController?.pushViewController(vc, animated: true)
+            
+        }
+        let window = UIApplication.shared.keyWindow
+        window?.addSubview(titlevc.view)
         
+        _ = recommend.rx.observe(CGRect.self, "view.frame").subscribe { (f) in
+//                        printCtm(f)
+            //            print(f)
+        }
+        
+//        //拖动手势
+//        let gesture = UIPanGestureRecognizer(target: self, action: #selector(viewPan(sender:)))
+//        
+//        self.scrollV.addGestureRecognizer(gesture)
+
     }
+    
+//    /**平移事件*/
+//    @objc func viewPan(sender: UIPanGestureRecognizer) {
+//        let _transX = sender.translation(in: scrollV).x
+//        let _transY = sender.translation(in: scrollV).y
+//        scrollV.transform = CGAffineTransform(translationX: _transX, y: _transY)
+//    }
+
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         current = scrollView.contentOffset.x/Kwidth
+        
         isScroll = true
     }
 
@@ -98,10 +138,20 @@ class HomeVC: BaseViewController, UIScrollViewDelegate {
         
         let offsetX = scrollView.contentOffset.x
 
+        if offsetX < 0 {
+            UIView.animate(withDuration: 0.3) {
+//                self.titlevc.view.x = 0;
+                UIApplication.shared.keyWindow?.rootViewController?.view.x = -offsetX;
+//                scrollView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false)
+//                self.scrollV.x = offsetX
+            }
+        }
+        
         if offsetX>0 && offsetX<Kwidth*2 && isScroll{
 
             let offsetWidth = (offsetX.truncatingRemainder(dividingBy: Kwidth))
-//             printCtm(offsetWidth/(Kwidth/2))
+             printCtm(offsetX)
+            
             ///仿闪屏
             if offsetWidth<10{
                 return;
@@ -136,7 +186,6 @@ class HomeVC: BaseViewController, UIScrollViewDelegate {
                 
             }else{
                 
-                printCtm("\( offsetWidth/Kwidth) ++++++\(String(describing: segmentV.lastBut?.x))")
                 if offsetWidth < Kwidth/2{
                     ///下划线变化
                     segmentV.sublineView.width = 10 + offsetWidth/(Kwidth/2)*CGFloat(segmentV.titleWidth-5)
@@ -171,6 +220,28 @@ class HomeVC: BaseViewController, UIScrollViewDelegate {
         title2But.setTitleColor(title2Color, for: .normal)
         
     }
+    @IBAction func OnMenuClick() {
+        
+
+        UIView.animate(withDuration: 0.3) {
+//            self.titlevc.view.x = 0;
+        }
+
+    }
+    
+    @IBAction func OnSearchClick() {
+        
+        
+    }
+
     
 
 }
+
+
+
+
+
+
+
+

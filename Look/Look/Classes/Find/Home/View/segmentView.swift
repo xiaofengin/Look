@@ -20,6 +20,7 @@ class segmentView: UIView, NibLoadable, UIScrollViewDelegate {
     
     var titleWidth = 0.0
     var lastBut:UIButton?
+    
     var defaultTag = 1
 
     
@@ -44,9 +45,12 @@ class segmentView: UIView, NibLoadable, UIScrollViewDelegate {
                     subLineX.constant = CGFloat(Double(titleBut.x) + titleWidth/2-5.0)
                     titleBut.setTitleColor(UIColor.red, for: .normal)
                     self.setNeedsLayout()
-                    lastBut = titleBut
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) {
+                        self.self.segmentSelect?(titleBut.tag)
+                    }
+                   
+//                    lastBut = titleBut
                 }
-                
             }
             
             titleSlect(sender: self.viewWithTag(defaultTag) as! UIButton)
@@ -56,7 +60,12 @@ class segmentView: UIView, NibLoadable, UIScrollViewDelegate {
     @objc func titleSlect(sender: UIButton) {
         if lastBut != sender {
             printCtm(sender.tag)
-            lastBut?.setTitleColor(UIColor.black, for: .normal)
+            for but in buttonsMuArray{
+                if but != sender{
+                    but.setTitleColor(UIColor.black, for: .normal)
+                }
+            }
+           
             sender.setTitleColor(UIColor.red, for: .normal)
             UIView.animate(withDuration: 0.2) {
                 self.sublineView.x = CGFloat(Double(sender.x) + self.titleWidth/2-5.0)
@@ -65,6 +74,13 @@ class segmentView: UIView, NibLoadable, UIScrollViewDelegate {
             lastBut = sender
             
             segmentSelect?(sender.tag)
+            var offsetX = (lastBut?.x)!-scrollV.width/2+20+CGFloat(titleWidth/2)
+            if offsetX<0{
+                offsetX = 0.0
+            }else if offsetX > CGFloat(titleWidth * Double(titleArray.count))-scrollV.width{
+                offsetX = CGFloat(titleWidth * Double(titleArray.count))-scrollV.width
+            }
+            scrollV.setContentOffset(CGPoint(x: offsetX, y: 0.0), animated: true)
         }
         
     }

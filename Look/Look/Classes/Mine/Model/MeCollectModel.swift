@@ -9,8 +9,23 @@
 import Foundation
 import HandyJSON
 
+///热点新闻
+struct HotNewsModel:HandyJSON {
+    var isLock : Int = 0
+    var isTop : Int = 0
+    var showType : Int = 0
+    var lastId : Int = 0
+    var video = MeCollectModel()
+    var endTime:Int = 0
+    var type :String = ""
+    var isShowCover : Int = 0
+}
+//视频数据
 struct MeCollectModel:HandyJSON {
     var ln : Int = 0
+    var lnCount:String {
+        return ln.convertString()
+    }
     var isLike :Bool = false
     var isCollection :Bool = false
     var description : String = ""
@@ -27,6 +42,10 @@ struct MeCollectModel:HandyJSON {
     var videoType : Int = 0
     var cn : Int = 0
     var pn : Int = 0
+    var pnCount:String {
+        return pn.convertString()
+    }
+    
     var streams  = [Streams]()
     var user = User()
     
