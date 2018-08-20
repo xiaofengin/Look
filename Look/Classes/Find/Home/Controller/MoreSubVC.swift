@@ -25,7 +25,7 @@ class MoreSubVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     /// 上一次播放的 cell
     private var priorCell: UserTableCell?
     /// 播放器
-    lazy var player: BMPlayer = BMPlayer()
+    lazy var player: BMPlayer = BMPlayer(customControlView: VideoPlayerCustomView())
     /// 当前播放的时间
     private var currentTime: TimeInterval = 0
     @IBOutlet weak var tableV: UITableView!
@@ -33,7 +33,7 @@ class MoreSubVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        player.delegate = self
+        player.delegate = self
         tableV.wf_registerCell(cell: UserTableCell.self)
         tableV.backgroundColor = UIColor.randomColor
     }
@@ -88,7 +88,7 @@ class MoreSubVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if let priorCell = self!.priorCell {
                 if cell != priorCell {
                     // 设置当前 cell 的属性
-//                    priorCell.showSubviews()
+                    priorCell.showSubviews()
                     // 判断当前播放器是否正在播放
                     if self!.player.isPlaying {
                         self!.player.pause()
@@ -118,7 +118,7 @@ class MoreSubVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if (rect.origin.y <= -cell.height) || (rect.origin.y >= Kheight - tabBarController!.tabBar.height) {
                 removePlayer()
                 // 设置当前 cell 的属性
-                //                        cell.showSubviews()
+                cell.showSubviews();
             }
         }
         
@@ -132,12 +132,14 @@ extension MoreSubVC{
     /// 把播放器添加到 cell 上
     private func addPlayer(on cell: UserTableCell) {
         // 视频播放时隐藏 cell 的部分子视图
-            cell.playerBut.addSubview(self.player)
+        cell.hiddenSubviews();
+        cell.playerBut.addSubview(self.player)
         self.player.snp.makeConstraints({ $0.edges.equalTo(cell.playerBut) })
-            // 设置视频播放地址
-        self.player.setVideo(resource: BMPlayerResource(url: URL(string: cell.myConcern.streams[0].url)!))
-            self.priorCell = cell
 
+        // 设置视频播放地址
+        self.player.setVideo(resource: BMPlayerResource(url: URL(string: cell.myConcern.streams[0].url)!))
+        
+            self.priorCell = cell
     }
 
     /// 移除播放器

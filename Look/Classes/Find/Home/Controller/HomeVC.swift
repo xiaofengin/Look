@@ -22,6 +22,7 @@ class HomeVC: BaseViewController, UIScrollViewDelegate {
     
     let hotNews:HotNewsVC = HotNewsVC()
     let smallVideo:SmallVideoVC = SmallVideoVC()
+    let recommend:RecommendVC = RecommendVC()
     let titlevc:TitleVC = TitleVC()
     
     var titleArray = [TitleModel]()
@@ -63,6 +64,8 @@ class HomeVC: BaseViewController, UIScrollViewDelegate {
                 self?.hotNews.hotNewsRequset()
             }else if tag == 3 {
                 self?.smallVideo.smallVideoRequset()
+            }else{
+                self?.recommend.recommendRequset()
             }
             self?.isScroll = false;
             self?.scrollV.setContentOffset(CGPoint(x: Kwidth*CGFloat((tag-1)), y: 0), animated: true)
@@ -74,7 +77,7 @@ class HomeVC: BaseViewController, UIScrollViewDelegate {
         self.addChildViewController(hotNews)
         scrollV.addSubview(hotNews.view)
         
-        let recommend = RecommendVC()
+//        let recommend = RecommendVC()
         recommend.view.frame = CGRect(x: Kwidth, y: 0, width: scrollV.width, height: scrollView.height)
         self.addChildViewController(recommend)
         scrollV.addSubview(recommend.view)

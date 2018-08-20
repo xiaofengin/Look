@@ -37,7 +37,7 @@ struct MeCollectModel:HandyJSON {
     var duration : Int = 0
     var tag : String = ""
     var st : String = ""
-    var publishTime : Int = 0
+    var publishTime :TimeInterval  = 0
     var docid : Int = 0
     var videoType : Int = 0
     var cn : Int = 0
@@ -69,4 +69,5 @@ struct User:HandyJSON {
     var id : Int = 0
     var verify : Int = 0
     var fn : Int = 0
+    var vn : Int = 0
 }

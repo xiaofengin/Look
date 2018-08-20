@@ -13,6 +13,7 @@ class VideoPlayerCustomView: BMPlayerControlView {
     
     override func customizeUIComponents() {
         BMPlayerConf.topBarShowInCase = .none
+        
     }
     
 }

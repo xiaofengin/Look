@@ -37,7 +37,6 @@
 		0AB6471321271EA7003F693C /* TitleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB646F621271EA7003F693C /* TitleVC.xib */; };
 		0AB6471421271EA7003F693C /* title.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AB646F821271EA7003F693C /* title.plist */; };
 		0AB6471521271EA7003F693C /* TitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB646F921271EA7003F693C /* TitleModel.swift */; };
-		0AB6471621271EA7003F693C /* TitleModel.temp_caseinsensitive_rename.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB646FA21271EA7003F693C /* TitleModel.temp_caseinsensitive_rename.swift */; };
 		0AB6471721271EA7003F693C /* HotTable1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB646FC21271EA7003F693C /* HotTable1Cell.swift */; };
 		0AB6471821271EA7003F693C /* HotTable1Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB646FD21271EA7003F693C /* HotTable1Cell.xib */; };
 		0AB6471921271EA7003F693C /* HotTable2Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB646FE21271EA7003F693C /* HotTable2Cell.swift */; };
@@ -71,6 +70,11 @@
 		0AD8210F2111A0D700A18252 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD8210D2111A0D700A18252 /* LaunchScreen.storyboard */; };
 		0AD8211A2111A0D700A18252 /* LookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD821192111A0D700A18252 /* LookTests.swift */; };
 		0AD821252111A0D700A18252 /* LookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD821242111A0D700A18252 /* LookUITests.swift */; };
+		0ADB6C1321296F1A00B7E97C /* VideoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB6C1121296F1A00B7E97C /* VideoPlayerVC.swift */; };
+		0ADB6C1421296F1A00B7E97C /* VideoPlayerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ADB6C1221296F1A00B7E97C /* VideoPlayerVC.xib */; };
+		0ADB6C17212999D200B7E97C /* CommentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB6C15212999D200B7E97C /* CommentTableCell.swift */; };
+		0ADB6C18212999D200B7E97C /* CommentTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ADB6C16212999D200B7E97C /* CommentTableCell.xib */; };
+		0ADB6C1A21299C0D00B7E97C /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADB6C1921299C0D00B7E97C /* ContentModel.swift */; };
 		0AEC4A302119ED3400875A32 /* FindVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC4A2E2119ED3400875A32 /* FindVC.swift */; };
 		D83D64FBB9FF2800C384DC8D /* Pods_Look.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55296F7EBCE7B17F3D58DF10 /* Pods_Look.framework */; };
 /* End PBXBuildFile section */
@@ -123,7 +127,6 @@
 		0AB646F621271EA7003F693C /* TitleVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleVC.xib; sourceTree = "<group>"; };
 		0AB646F821271EA7003F693C /* title.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = title.plist; sourceTree = "<group>"; };
 		0AB646F921271EA7003F693C /* TitleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleModel.swift; sourceTree = "<group>"; };
-		0AB646FA21271EA7003F693C /* TitleModel.temp_caseinsensitive_rename.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleModel.temp_caseinsensitive_rename.swift; sourceTree = "<group>"; };
 		0AB646FC21271EA7003F693C /* HotTable1Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotTable1Cell.swift; sourceTree = "<group>"; };
 		0AB646FD21271EA7003F693C /* HotTable1Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotTable1Cell.xib; sourceTree = "<group>"; };
 		0AB646FE21271EA7003F693C /* HotTable2Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotTable2Cell.swift; sourceTree = "<group>"; };
@@ -163,6 +166,11 @@
 		0AD821202111A0D700A18252 /* LookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD821242111A0D700A18252 /* LookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookUITests.swift; sourceTree = "<group>"; };
 		0AD821262111A0D700A18252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ADB6C1121296F1A00B7E97C /* VideoPlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVC.swift; sourceTree = "<group>"; };
+		0ADB6C1221296F1A00B7E97C /* VideoPlayerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPlayerVC.xib; sourceTree = "<group>"; };
+		0ADB6C15212999D200B7E97C /* CommentTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableCell.swift; sourceTree = "<group>"; };
+		0ADB6C16212999D200B7E97C /* CommentTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableCell.xib; sourceTree = "<group>"; };
+		0ADB6C1921299C0D00B7E97C /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		0AEC4A2E2119ED3400875A32 /* FindVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindVC.swift; sourceTree = "<group>"; };
 		283A962435DB55AE0C6175F1 /* Pods-Look.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Look.release.xcconfig"; path = "Pods/Target Support Files/Pods-Look/Pods-Look.release.xcconfig"; sourceTree = "<group>"; };
 		55296F7EBCE7B17F3D58DF10 /* Pods_Look.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Look.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -390,6 +398,8 @@
 		0AB646E821271EA7003F693C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0ADB6C1121296F1A00B7E97C /* VideoPlayerVC.swift */,
+				0ADB6C1221296F1A00B7E97C /* VideoPlayerVC.xib */,
 				0AB646E921271EA7003F693C /* Controller */,
 				0AB646F721271EA7003F693C /* Model */,
 				0AB646FB21271EA7003F693C /* View */,
@@ -422,8 +432,8 @@
 			isa = PBXGroup;
 			children = (
 				0AB646F821271EA7003F693C /* title.plist */,
+				0ADB6C1921299C0D00B7E97C /* ContentModel.swift */,
 				0AB646F921271EA7003F693C /* TitleModel.swift */,
-				0AB646FA21271EA7003F693C /* TitleModel.temp_caseinsensitive_rename.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -442,6 +452,8 @@
 				0AB6470421271EA7003F693C /* TitleTableCell.swift */,
 				0AB6470521271EA7003F693C /* TitleTableCell.xib */,
 				0AB6470621271EA7003F693C /* VideoPlayerCustomView.swift */,
+				0ADB6C15212999D200B7E97C /* CommentTableCell.swift */,
+				0ADB6C16212999D200B7E97C /* CommentTableCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -586,6 +598,7 @@
 				TargetAttributes = {
 					0AD821002111A0D600A18252 = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 0940;
 					};
 					0AD821142111A0D700A18252 = {
 						CreatedOnToolsVersion = 9.4;
@@ -630,12 +643,14 @@
 				0AB6471321271EA7003F693C /* TitleVC.xib in Resources */,
 				0AB6472021271EA7003F693C /* TitleTableCell.xib in Resources */,
 				0AD8210F2111A0D700A18252 /* LaunchScreen.storyboard in Resources */,
+				0ADB6C18212999D200B7E97C /* CommentTableCell.xib in Resources */,
 				0AB6471C21271EA7003F693C /* segmentView.xib in Resources */,
 				0AB6470F21271EA7003F693C /* RecommendVC.xib in Resources */,
 				0AD8210C2111A0D700A18252 /* Assets.xcassets in Resources */,
 				0AD5030A2114282D00F5C9E3 /* PlayRecordTableCell.xib in Resources */,
 				0AC1DE342118268F00AF6CC6 /* UserInfoVC.xib in Resources */,
 				0AB6471121271EA7003F693C /* SmallVideoVC.xib in Resources */,
+				0ADB6C1421296F1A00B7E97C /* VideoPlayerVC.xib in Resources */,
 				0AB6471821271EA7003F693C /* HotTable1Cell.xib in Resources */,
 				0AD8210A2111A0D600A18252 /* Main.storyboard in Resources */,
 				0AD5030E211429D100F5C9E3 /* PalyRecordCollectionCell.xib in Resources */,
@@ -742,16 +757,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A9A460821170CB500E70C5D /* MeCollectTableCell.swift in Sources */,
-				0AB6471621271EA7003F693C /* TitleModel.temp_caseinsensitive_rename.swift in Sources */,
 				0AB6470A21271EA7003F693C /* MoreSubVC.swift in Sources */,
 				0AC1DE2D2117E58E00AF6CC6 /* ConcernTableCell.swift in Sources */,
 				0AB6471921271EA7003F693C /* HotTable2Cell.swift in Sources */,
+				0ADB6C1A21299C0D00B7E97C /* ContentModel.swift in Sources */,
 				0AB6470C21271EA7003F693C /* MoreVC.swift in Sources */,
 				0A0AD78E2111A40500A6A9AE /* BaseViewController.swift in Sources */,
 				0AB6471F21271EA7003F693C /* TitleTableCell.swift in Sources */,
 				0A0AD7972111A40500A6A9AE /* MyTabBarVC.swift in Sources */,
 				0AC1DE262117DF6D00AF6CC6 /* ConcernMainVC.swift in Sources */,
 				0AD503092114282D00F5C9E3 /* PlayRecordTableCell.swift in Sources */,
+				0ADB6C1321296F1A00B7E97C /* VideoPlayerVC.swift in Sources */,
 				0A0AD7962111A40500A6A9AE /* MyNavigationVC.swift in Sources */,
 				0AB6470E21271EA7003F693C /* RecommendVC.swift in Sources */,
 				0A0AD79C2111B44000A6A9AE /* WFTool.swift in Sources */,
@@ -779,6 +795,7 @@
 				0AB6470721271EA7003F693C /* HomeVC.swift in Sources */,
 				0A9A4605211702C300E70C5D /* MeCollectModel.swift in Sources */,
 				0AB6471521271EA7003F693C /* TitleModel.swift in Sources */,
+				0ADB6C17212999D200B7E97C /* CommentTableCell.swift in Sources */,
 				0A0AD7952111A40500A6A9AE /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -953,6 +970,7 @@
 			baseConfigurationReference = 734D8F1755EDA3903F273D32 /* Pods-Look.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DCV5F7FELN;
 				INFOPLIST_FILE = Look/Info.plist;
@@ -963,6 +981,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Look;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -973,6 +992,7 @@
 			baseConfigurationReference = 283A962435DB55AE0C6175F1 /* Pods-Look.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DCV5F7FELN;
 				INFOPLIST_FILE = Look/Info.plist;

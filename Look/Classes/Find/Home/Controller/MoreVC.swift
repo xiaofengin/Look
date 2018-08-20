@@ -22,11 +22,18 @@ class MoreVC: UIViewController, UIScrollViewDelegate {
     /// 懒加载 头部
     private lazy var segmentV = segmentView.loadViewFromNib()
     
-//    override func viewWillLayoutSubviews() {
-//        isScroll = false;
-//        scrollV.setContentOffset(CGPoint(x: Kwidth*CGFloat(cellIndex), y: 0), animated: false)
-//        
-//    }
+    override func viewWillLayoutSubviews() {
+        isScroll = false;
+        scrollV.setContentOffset(CGPoint(x: Kwidth*CGFloat(selectCell), y: 0), animated: false)
+        
+        var offsetX = CGFloat(segmentV.titleWidth)*CGFloat(selectCell)-scrollV.width/2+20+CGFloat(segmentV.titleWidth/2)
+        if offsetX<0{
+            offsetX = 0.0
+        }else if offsetX > CGFloat(segmentV.titleWidth * Double(titleArray.count))-scrollV.width{
+            offsetX = CGFloat(segmentV.titleWidth * Double(segmentV.titleArray.count))-scrollV.width
+        }
+        segmentV.scrollV.setContentOffset(CGPoint(x: offsetX, y: 0.0), animated: true)
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true

@@ -26,6 +26,7 @@ class UserTableCell: UITableViewCell, RegisterCellFromNib {
     @IBOutlet weak var userIconImageV: UIImageView!
     @IBOutlet weak var VIPImageV: UIImageView!
     @IBOutlet weak var attentionBut: UIButton!
+    @IBOutlet weak var weixinWeight: NSLayoutConstraint!
     
     @IBOutlet weak var playerBut: UIButton!
     
@@ -34,19 +35,51 @@ class UserTableCell: UITableViewCell, RegisterCellFromNib {
             playerBut.kf.setImage(with: URL(string: myConcern.cover), for: .normal)
             mainTitleLab.text = myConcern.title
             durationTimeLab.text =  myConcern.duration.convertVideoDuration()
-            timeLab.text = myConcern.duration.convertString()
+            timeLab.text = myConcern.user.nickName//myConcern.duration.convertString()
             praiseBut.setTitle("\(myConcern.ln)", for: .normal)
             if myConcern.cn > 0 {
                 commentBut.setTitle("\(myConcern.cn)", for: .normal)
+            }
+            userIconImageV.kf.setImage(with: URL(string: myConcern.user.photo))
+            if myConcern.user.verify == 1 {
+                VIPImageV.isHidden = false
             }
             
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+        userIconImageV.layer.masksToBounds = true
+        userIconImageV.layer.cornerRadius = 15
+        
+        usericonView.layer.masksToBounds = true
+        usericonView.layer.cornerRadius = 16
     }
 
+    ///未播放视频
+    func showSubviews()  {
+        mainTitleLab.isHidden = false
+        mainImageV.isHidden = false
+        durationTimeLab.isHidden = false
+        weixinViewToBottom.constant = 40
+        timeLab.isHidden = false
+        attentionBut.isHidden = true
+        shareBut.isHidden = false
+        weixinView.isHidden = true
+        weixinWeight.constant = 30
+    }
+    ///播放视频
+    func hiddenSubviews()  {
+        mainTitleLab.isHidden = true
+        mainImageV.isHidden = true
+        durationTimeLab.isHidden = true
+        weixinViewToBottom.constant = 8
+        timeLab.isHidden = true
+        attentionBut.isHidden = false
+        shareBut.isHidden = true
+        weixinView.isHidden = false
+        weixinWeight.constant = 60
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -6,7 +6,7 @@
 //  Copyright © 2018年 王峰. All rights reserved.
 //
 
-import Foundation
+
 import Foundation
 import HandyJSON
 

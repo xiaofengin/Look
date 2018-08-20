@@ -73,7 +73,7 @@ class segmentView: UIView, NibLoadable, UIScrollViewDelegate {
             
             lastBut = sender
             
-            segmentSelect?(sender.tag)
+        
             var offsetX = (lastBut?.x)!-scrollV.width/2+20+CGFloat(titleWidth/2)
             if offsetX<0{
                 offsetX = 0.0
@@ -81,6 +81,9 @@ class segmentView: UIView, NibLoadable, UIScrollViewDelegate {
                 offsetX = CGFloat(titleWidth * Double(titleArray.count))-scrollV.width
             }
             scrollV.setContentOffset(CGPoint(x: offsetX, y: 0.0), animated: true)
+            
+            
+            segmentSelect?(sender.tag)
         }
         
     }
