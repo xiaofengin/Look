@@ -32,8 +32,8 @@ class HomeVC: BaseViewController, UIScrollViewDelegate {
     private lazy var segmentV = segmentView.loadViewFromNib()
     
     override func viewWillLayoutSubviews() {
-        isScroll = false;
-        scrollV.setContentOffset(CGPoint(x: Kwidth, y: 0), animated: true)
+//        isScroll = false;
+//        scrollV.setContentOffset(CGPoint(x: Kwidth, y: 0), animated: false)
 
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -113,6 +113,11 @@ class HomeVC: BaseViewController, UIScrollViewDelegate {
 //        
 //        self.scrollV.addGestureRecognizer(gesture)
 
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.1) {
+           
+            self.isScroll = false;
+            self.scrollV.setContentOffset(CGPoint(x: Kwidth, y: 0), animated: false)
+        }
     }
     
 //    /**平移事件*/

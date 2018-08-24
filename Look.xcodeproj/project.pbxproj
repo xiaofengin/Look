@@ -21,6 +21,13 @@
 		0A10926A2115B48B00418E06 /* MeCollectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A1092682115B48B00418E06 /* MeCollectVC.xib */; };
 		0A1EFB1B212BA3CD006F5405 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1EFB1A212BA3CD006F5405 /* VideoPlayerView.swift */; };
 		0A1EFB1D212BA3DA006F5405 /* VideoPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A1EFB1C212BA3DA006F5405 /* VideoPlayerView.xib */; };
+		0A92A9B2212F9FBF0090D961 /* SmallVideoInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92A9B0212F9FBF0090D961 /* SmallVideoInfoVC.swift */; };
+		0A92A9B3212F9FBF0090D961 /* SmallVideoInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A92A9B1212F9FBF0090D961 /* SmallVideoInfoVC.xib */; };
+		0A92A9B6212FA0670090D961 /* SmallVideoInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92A9B4212FA0660090D961 /* SmallVideoInfoCell.swift */; };
+		0A92A9B7212FA0670090D961 /* SmallVideoInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A92A9B5212FA0670090D961 /* SmallVideoInfoCell.xib */; };
+		0A92A9B9212FB1470090D961 /* SmallVideoPlayerCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92A9B8212FB1470090D961 /* SmallVideoPlayerCustomView.swift */; };
+		0A92A9BB212FB8FE0090D961 /* SmallVideoCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92A9BA212FB8FE0090D961 /* SmallVideoCommentView.swift */; };
+		0A92A9BD212FB9950090D961 /* SmallVideoCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A92A9BC212FB9950090D961 /* SmallVideoCommentView.xib */; };
 		0A9A4605211702C300E70C5D /* MeCollectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A4604211702C300E70C5D /* MeCollectModel.swift */; };
 		0A9A460821170CB500E70C5D /* MeCollectTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A460621170CB500E70C5D /* MeCollectTableCell.swift */; };
 		0A9A460921170CB500E70C5D /* MeCollectTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A460721170CB500E70C5D /* MeCollectTableCell.xib */; };
@@ -113,6 +120,13 @@
 		0A1092682115B48B00418E06 /* MeCollectVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeCollectVC.xib; sourceTree = "<group>"; };
 		0A1EFB1A212BA3CD006F5405 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		0A1EFB1C212BA3DA006F5405 /* VideoPlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPlayerView.xib; sourceTree = "<group>"; };
+		0A92A9B0212F9FBF0090D961 /* SmallVideoInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallVideoInfoVC.swift; sourceTree = "<group>"; };
+		0A92A9B1212F9FBF0090D961 /* SmallVideoInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallVideoInfoVC.xib; sourceTree = "<group>"; };
+		0A92A9B4212FA0660090D961 /* SmallVideoInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallVideoInfoCell.swift; sourceTree = "<group>"; };
+		0A92A9B5212FA0670090D961 /* SmallVideoInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallVideoInfoCell.xib; sourceTree = "<group>"; };
+		0A92A9B8212FB1470090D961 /* SmallVideoPlayerCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallVideoPlayerCustomView.swift; sourceTree = "<group>"; };
+		0A92A9BA212FB8FE0090D961 /* SmallVideoCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallVideoCommentView.swift; sourceTree = "<group>"; };
+		0A92A9BC212FB9950090D961 /* SmallVideoCommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallVideoCommentView.xib; sourceTree = "<group>"; };
 		0A9A4604211702C300E70C5D /* MeCollectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeCollectModel.swift; sourceTree = "<group>"; };
 		0A9A460621170CB500E70C5D /* MeCollectTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeCollectTableCell.swift; sourceTree = "<group>"; };
 		0A9A460721170CB500E70C5D /* MeCollectTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeCollectTableCell.xib; sourceTree = "<group>"; };
@@ -428,6 +442,8 @@
 				0AB646F221271EA7003F693C /* RecommendVC.xib */,
 				0AB646F321271EA7003F693C /* SmallVideoVC.swift */,
 				0AB646F421271EA7003F693C /* SmallVideoVC.xib */,
+				0A92A9B0212F9FBF0090D961 /* SmallVideoInfoVC.swift */,
+				0A92A9B1212F9FBF0090D961 /* SmallVideoInfoVC.xib */,
 				0AB646F521271EA7003F693C /* TitleVC.swift */,
 				0AB646F621271EA7003F693C /* TitleVC.xib */,
 			);
@@ -455,11 +471,16 @@
 				0AB6470121271EA7003F693C /* segmentView.xib */,
 				0AB6470221271EA7003F693C /* SmallVideoCollectionCell.swift */,
 				0AB6470321271EA7003F693C /* SmallVideoCollectionCell.xib */,
+				0A92A9B4212FA0660090D961 /* SmallVideoInfoCell.swift */,
+				0A92A9B5212FA0670090D961 /* SmallVideoInfoCell.xib */,
 				0AB6470421271EA7003F693C /* TitleTableCell.swift */,
 				0AB6470521271EA7003F693C /* TitleTableCell.xib */,
 				0AB6470621271EA7003F693C /* VideoPlayerCustomView.swift */,
+				0A92A9B8212FB1470090D961 /* SmallVideoPlayerCustomView.swift */,
 				0ADB6C15212999D200B7E97C /* CommentTableCell.swift */,
 				0ADB6C16212999D200B7E97C /* CommentTableCell.xib */,
+				0A92A9BA212FB8FE0090D961 /* SmallVideoCommentView.swift */,
+				0A92A9BC212FB9950090D961 /* SmallVideoCommentView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -647,6 +668,7 @@
 				0AB6471421271EA7003F693C /* title.plist in Resources */,
 				0A1EFB1D212BA3DA006F5405 /* VideoPlayerView.xib in Resources */,
 				0AB6471A21271EA7003F693C /* HotTable2Cell.xib in Resources */,
+				0A92A9B3212F9FBF0090D961 /* SmallVideoInfoVC.xib in Resources */,
 				0AB6471321271EA7003F693C /* TitleVC.xib in Resources */,
 				0AB6472021271EA7003F693C /* TitleTableCell.xib in Resources */,
 				0AD8210F2111A0D700A18252 /* LaunchScreen.storyboard in Resources */,
@@ -654,6 +676,7 @@
 				0AB6471C21271EA7003F693C /* segmentView.xib in Resources */,
 				0AB6470F21271EA7003F693C /* RecommendVC.xib in Resources */,
 				0AD8210C2111A0D700A18252 /* Assets.xcassets in Resources */,
+				0A92A9BD212FB9950090D961 /* SmallVideoCommentView.xib in Resources */,
 				0AD5030A2114282D00F5C9E3 /* PlayRecordTableCell.xib in Resources */,
 				0AC1DE342118268F00AF6CC6 /* UserInfoVC.xib in Resources */,
 				0AB6471121271EA7003F693C /* SmallVideoVC.xib in Resources */,
@@ -662,6 +685,7 @@
 				0AD8210A2111A0D600A18252 /* Main.storyboard in Resources */,
 				0AD5030E211429D100F5C9E3 /* PalyRecordCollectionCell.xib in Resources */,
 				0AB6470B21271EA7003F693C /* MoreSubVC.xib in Resources */,
+				0A92A9B7212FA0670090D961 /* SmallVideoInfoCell.xib in Resources */,
 				0AB6470921271EA7003F693C /* HotNewsVC.xib in Resources */,
 				0AB6470D21271EA7003F693C /* MoreVC.xib in Resources */,
 				0A0AD7942111A40500A6A9AE /* MineTableCell.xib in Resources */,
@@ -779,8 +803,10 @@
 				0AB6470E21271EA7003F693C /* RecommendVC.swift in Sources */,
 				0A0AD79C2111B44000A6A9AE /* WFTool.swift in Sources */,
 				0A1092692115B48B00418E06 /* MeCollectVC.swift in Sources */,
+				0A92A9B2212F9FBF0090D961 /* SmallVideoInfoVC.swift in Sources */,
 				0A0AD7932111A40500A6A9AE /* MineTableCell.swift in Sources */,
 				0AB6471721271EA7003F693C /* HotTable1Cell.swift in Sources */,
+				0A92A9B9212FB1470090D961 /* SmallVideoPlayerCustomView.swift in Sources */,
 				0AC1DE282117E0E900AF6CC6 /* ConcernHeaderView.swift in Sources */,
 				0AC1DE3021181B3400AF6CC6 /* Foundation+Extension.swift in Sources */,
 				0A0AD7902111A40500A6A9AE /* MineVC.swift in Sources */,
@@ -797,9 +823,11 @@
 				0AB6471D21271EA7003F693C /* SmallVideoCollectionCell.swift in Sources */,
 				0AD821052111A0D600A18252 /* AppDelegate.swift in Sources */,
 				0AB6472121271EA7003F693C /* VideoPlayerCustomView.swift in Sources */,
+				0A92A9B6212FA0670090D961 /* SmallVideoInfoCell.swift in Sources */,
 				0AB6471021271EA7003F693C /* SmallVideoVC.swift in Sources */,
 				0AEC4A302119ED3400875A32 /* FindVC.swift in Sources */,
 				0AB6470721271EA7003F693C /* HomeVC.swift in Sources */,
+				0A92A9BB212FB8FE0090D961 /* SmallVideoCommentView.swift in Sources */,
 				0A9A4605211702C300E70C5D /* MeCollectModel.swift in Sources */,
 				0AB6471521271EA7003F693C /* TitleModel.swift in Sources */,
 				0ADB6C17212999D200B7E97C /* CommentTableCell.swift in Sources */,

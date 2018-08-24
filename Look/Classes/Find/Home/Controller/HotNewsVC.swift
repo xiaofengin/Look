@@ -53,14 +53,14 @@ class HotNewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     for item in self.hotNewsArray{
                         
                         if item.showType == 1{
-                            let titleHight = item.video.title.textHeight(fontSize: 14, width: Kwidth-30-192*Kwidth/640)
+                            let titleHight = item.video.title.textHeight(fontSize: 16, width: Kwidth-30-192*Kwidth/640)
                             if titleHight < 126*Kwidth/650{
                                 self.cellHeightArray.append(126*Kwidth/650+24.0 )
                             }else{
                                 self.cellHeightArray.append(titleHight+30+24)
                             }
                         }else{
-                            let titleHight = item.video.title.textHeight(fontSize: 14, width: Kwidth-20)
+                            let titleHight = item.video.title.textHeight(fontSize: 16, width: Kwidth-20)
                             if titleHight < 40{
                                 self.cellHeightArray.append(titleHight+(Kwidth-20)*33/60+60)
                             }else{

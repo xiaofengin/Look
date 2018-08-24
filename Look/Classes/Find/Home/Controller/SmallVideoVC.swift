@@ -8,11 +8,13 @@
 
 import UIKit
 import SwiftyJSON
+
 class SmallVideoVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
    
     
     @IBOutlet weak var collectionV: UICollectionView!
     
+
     let pageNo = 1
     var smallVideoArray = [HotNewsModel]()
     var isLoad = true
@@ -32,9 +34,6 @@ class SmallVideoVC: UIViewController, UICollectionViewDelegate, UICollectionView
         collectionV.collectionViewLayout = layout
     
         ///http://api.klm123.com/channel/getListById/version/6?src=1000&t=1534057723.187437&channelId=100&pageNo=1&pageSize=10&rc=1
-   
-    
-        
     
     }
     func smallVideoRequset()  {
@@ -76,5 +75,13 @@ class SmallVideoVC: UIViewController, UICollectionViewDelegate, UICollectionView
         cell.mySmallVideoData = smallVideoArray[indexPath.row]
         return cell
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let vc = SmallVideoInfoVC()
+        vc.hidesBottomBarWhenPushed = true
+        vc.originalIndex = indexPath.row;
+        vc.smallVideoArray = smallVideoArray
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

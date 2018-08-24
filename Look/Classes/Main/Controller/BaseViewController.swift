@@ -78,7 +78,7 @@ class BaseViewController: UIViewController {
         
 //        automaticallyAdjustsScrollViewInsets=false;
         
-        if (navigationController?.viewControllers.count)! > 1 {
+        if ((navigationController?.viewControllers.count) != nil) && (navigationController?.viewControllers.count)! > 1 {
               navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "返回"), style: .plain, target: self, action: #selector(goBack))
         }
     }

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SmallVideoInfoCell" customModule="Look" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="334" height="528"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="334" height="528"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5lW-qd-cec">
+                        <rect key="frame" x="0.0" y="0.0" width="334" height="528"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UdH-Fk-nXs">
+                        <rect key="frame" x="10" y="484" width="314" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="WcE-Bo-pnO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpD-Mc-bH8">
+                        <rect key="frame" x="274" y="378" width="40" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="Lny-d3-j03"/>
+                            <constraint firstAttribute="width" constant="40" id="esA-2A-Dfb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <inset key="titleEdgeInsets" minX="-16" minY="0.0" maxX="0.0" maxY="-30"/>
+                        <inset key="imageEdgeInsets" minX="11" minY="-43" maxX="0.0" maxY="-29"/>
+                        <state key="normal" title="分享" image="分享"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPC-lC-O2T">
+                        <rect key="frame" x="274" y="308" width="40" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="qP2-Ar-dk5"/>
+                            <constraint firstAttribute="height" constant="50" id="zhB-C0-wwu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <inset key="titleEdgeInsets" minX="-17" minY="0.0" maxX="0.0" maxY="-30"/>
+                        <inset key="imageEdgeInsets" minX="11" minY="-43" maxX="0.0" maxY="-30"/>
+                        <state key="normal" title="评论" image="评论"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PlB-n7-k3X">
+                        <rect key="frame" x="274" y="238" width="40" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="BIs-zl-KKY"/>
+                            <constraint firstAttribute="height" constant="50" id="vZc-aa-Nyo"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <inset key="titleEdgeInsets" minX="-16" minY="0.0" maxX="0.0" maxY="-30"/>
+                        <inset key="imageEdgeInsets" minX="11" minY="-43" maxX="0.0" maxY="-29"/>
+                        <state key="normal" title="心" image="心"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="5lW-qd-cec" secondAttribute="trailing" id="AbE-es-Ab6"/>
+                <constraint firstAttribute="bottom" secondItem="5lW-qd-cec" secondAttribute="bottom" id="BY9-VD-vcC"/>
+                <constraint firstAttribute="trailing" secondItem="uPC-lC-O2T" secondAttribute="trailing" constant="20" id="LW6-Zd-I9n"/>
+                <constraint firstAttribute="trailing" secondItem="UdH-Fk-nXs" secondAttribute="trailing" constant="10" id="TG5-Lr-gp8"/>
+                <constraint firstItem="uPC-lC-O2T" firstAttribute="top" secondItem="PlB-n7-k3X" secondAttribute="bottom" constant="20" id="Ta3-Bq-S1q"/>
+                <constraint firstItem="5lW-qd-cec" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Ugx-5c-BGI"/>
+                <constraint firstAttribute="bottom" secondItem="UdH-Fk-nXs" secondAttribute="bottom" constant="20" id="V0t-wc-fJb"/>
+                <constraint firstItem="5lW-qd-cec" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hJI-1i-gQ4"/>
+                <constraint firstAttribute="trailing" secondItem="XpD-Mc-bH8" secondAttribute="trailing" constant="20" id="j6G-Ou-zp9"/>
+                <constraint firstItem="UdH-Fk-nXs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="msY-bP-ThB"/>
+                <constraint firstAttribute="trailing" secondItem="PlB-n7-k3X" secondAttribute="trailing" constant="20" id="rvd-f0-3gn"/>
+                <constraint firstAttribute="bottom" secondItem="XpD-Mc-bH8" secondAttribute="bottom" constant="100" id="vPC-kn-b1g"/>
+                <constraint firstItem="XpD-Mc-bH8" firstAttribute="top" secondItem="uPC-lC-O2T" secondAttribute="bottom" constant="20" id="zsG-9X-ycs"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="334" height="528"/>
+            <connections>
+                <outlet property="commentBut" destination="uPC-lC-O2T" id="ZsX-qa-oQ4"/>
+                <outlet property="heartBut" destination="PlB-n7-k3X" id="ewV-fF-w0S"/>
+                <outlet property="mainImageV" destination="5lW-qd-cec" id="C05-A1-XXe"/>
+                <outlet property="shareBut" destination="XpD-Mc-bH8" id="xgh-Ex-uqg"/>
+                <outlet property="titleLab" destination="UdH-Fk-nXs" id="IAJ-vt-pQd"/>
+            </connections>
+            <point key="canvasLocation" x="41" y="230"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="分享" width="20" height="20"/>
+        <image name="心" width="20" height="20"/>
+        <image name="评论" width="20" height="20"/>
+    </resources>
+</document>
