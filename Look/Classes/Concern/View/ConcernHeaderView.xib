@@ -107,26 +107,34 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShW-cW-anP">
+                    <rect key="frame" x="12" y="60" width="295" height="166"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ymf-Ec-Pat" firstAttribute="top" secondItem="1Cf-Sb-mWt" secondAttribute="bottom" id="5pP-wd-4V1"/>
                 <constraint firstItem="ymf-Ec-Pat" firstAttribute="bottom" secondItem="L8v-Rm-sy2" secondAttribute="bottom" constant="-10" id="82w-YR-fIg"/>
+                <constraint firstItem="ShW-cW-anP" firstAttribute="trailing" secondItem="L8v-Rm-sy2" secondAttribute="trailing" id="9Yi-rO-qED"/>
                 <constraint firstItem="ymf-Ec-Pat" firstAttribute="trailing" secondItem="L8v-Rm-sy2" secondAttribute="trailing" constant="-10" id="D8w-zr-Zd0"/>
+                <constraint firstItem="ShW-cW-anP" firstAttribute="bottom" secondItem="L8v-Rm-sy2" secondAttribute="bottom" id="LZg-qz-sB9"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="L8v-Rm-sy2" secondAttribute="bottom" constant="12" id="Q2s-Zy-MGx"/>
                 <constraint firstItem="CEA-Kl-nV1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Qiz-dT-K4m"/>
                 <constraint firstItem="CEA-Kl-nV1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="RBt-EP-OyB"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="L8v-Rm-sy2" secondAttribute="trailing" constant="12" id="US5-bs-coH"/>
+                <constraint firstItem="ShW-cW-anP" firstAttribute="leading" secondItem="L8v-Rm-sy2" secondAttribute="leading" id="a6g-o5-lgn"/>
                 <constraint firstItem="ymf-Ec-Pat" firstAttribute="leading" secondItem="L8v-Rm-sy2" secondAttribute="leading" constant="10" id="hnz-Fc-1db"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="CEA-Kl-nV1" secondAttribute="trailing" constant="12" id="kpw-lw-mHC"/>
                 <constraint firstItem="ymf-Ec-Pat" firstAttribute="leading" secondItem="1Cf-Sb-mWt" secondAttribute="leading" id="w1w-VI-yz9"/>
                 <constraint firstItem="L8v-Rm-sy2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="wr4-TB-AFj"/>
                 <constraint firstItem="L8v-Rm-sy2" firstAttribute="top" secondItem="CEA-Kl-nV1" secondAttribute="bottom" id="xEE-QL-Bn3"/>
+                <constraint firstItem="ShW-cW-anP" firstAttribute="top" secondItem="L8v-Rm-sy2" secondAttribute="top" id="xJ1-ek-l8N"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="headBut" destination="oK5-7R-Dw2" id="wol-5e-lJq"/>
+                <outlet property="hederViedoBut" destination="ShW-cW-anP" id="4Nq-3p-mLB"/>
                 <outlet property="mainInageV" destination="L8v-Rm-sy2" id="KhF-U2-MHw"/>
                 <outlet property="mainTitleLab" destination="Wlu-If-wFm" id="8je-qj-0li"/>
                 <outlet property="subTitleLab" destination="QmR-Y8-6fi" id="gUk-sd-siZ"/>

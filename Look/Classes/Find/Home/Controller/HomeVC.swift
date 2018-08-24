@@ -39,7 +39,8 @@ class HomeVC: BaseViewController, UIScrollViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        setStatusBarBackgroundColor(color: UIColor.white)
+//        setStatusBarBackgroundColor(color: UIColor.white)
+         
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -95,6 +96,7 @@ class HomeVC: BaseViewController, UIScrollViewDelegate {
             let vc = MoreVC()
             vc.titleArray = data
             vc.selectCell = cellIndex
+            vc.hidesBottomBarWhenPushed = true
             self?.navigationController?.pushViewController(vc, animated: true)
             
         }

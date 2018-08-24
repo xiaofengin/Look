@@ -22,7 +22,7 @@ protocol NibLoadable {}
 
 extension NibLoadable {
     static func loadViewFromNib() -> Self {
-        return Bundle.main.loadNibNamed("\(self)", owner: nil, options: nil)?.last as! Self
+        return Bundle.main.loadNibNamed("\(self)", owner: nil, options: nil)?.first as! Self
     }
 }
 extension UIView{

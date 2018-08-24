@@ -110,18 +110,33 @@
                                                 </imageView>
                                                 <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3n-CW-hJ4">
                                                     <rect key="frame" x="10" y="28" width="52" height="77"/>
+                                                    <connections>
+                                                        <action selector="OnTitleButClick:" destination="e1d-j8-3Fw" eventType="touchUpInside" id="Uco-kt-Y0I"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDm-ou-UNA">
                                                     <rect key="frame" x="72" y="28.5" width="52" height="76.5"/>
+                                                    <connections>
+                                                        <action selector="OnTitleButClick:" destination="e1d-j8-3Fw" eventType="touchUpInside" id="hYg-Th-o5Y"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeI-Jq-XUk">
                                                     <rect key="frame" x="134" y="28.5" width="52" height="76.5"/>
+                                                    <connections>
+                                                        <action selector="OnTitleButClick:" destination="e1d-j8-3Fw" eventType="touchUpInside" id="kIl-s1-Jor"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" tag="24" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpb-xC-FNj">
                                                     <rect key="frame" x="196" y="27.5" width="52" height="77.5"/>
+                                                    <connections>
+                                                        <action selector="OnTitleButClick:" destination="e1d-j8-3Fw" eventType="touchUpInside" id="QDg-EN-VxU"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" tag="25" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKa-fd-Rgg">
                                                     <rect key="frame" x="258" y="28.5" width="52" height="77"/>
+                                                    <connections>
+                                                        <action selector="OnTitleButClick:" destination="e1d-j8-3Fw" eventType="touchUpInside" id="hcb-aO-MRJ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -219,6 +234,9 @@
                                             </label>
                                             <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhS-2c-y6w">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
+                                                <connections>
+                                                    <action selector="OnSerchClick" destination="e1d-j8-3Fw" eventType="touchUpInside" id="zdp-ah-dCV"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>

@@ -9,13 +9,20 @@
 import UIKit
 import SwiftyJSON
 import Kingfisher
+import BMPlayer
+import RxSwift
+import RxCocoa
 class UserInfoVC: UIViewController ,UITableViewDataSource, UITableViewDelegate{
 
   
     var userID = ""
     var pageNo = 1
     var totalCount = 0
-    
+    private lazy var disposeBag = DisposeBag()
+    /// 上一次播放的 cell
+    private var priorCell: UserTableCell?
+    /// 播放器
+    lazy var player: BMPlayer = BMPlayer(customControlView: VideoPlayerCustomView())
     // 存储 cell的数据
     var myDataArray = [MeCollectModel]()
     var userModel = User(){
@@ -45,14 +52,16 @@ class UserInfoVC: UIViewController ,UITableViewDataSource, UITableViewDelegate{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
-        UIApplication.shared.statusBarStyle = .lightContent;
-        setStatusBarBackgroundColor(color: UIColor.clear)
+//        UIApplication.shared.statusBarStyle = .lightContent;
+//        setStatusBarBackgroundColor(color: UIColor.clear)
+         self.navigationController?.navigationBar.barStyle = .black
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
-        UIApplication.shared.statusBarStyle = .default;
-         setStatusBarBackgroundColor(color: UIColor.white)
+//        UIApplication.shared.statusBarStyle = .default;
+//         setStatusBarBackgroundColor(color: UIColor.white)
+         self.navigationController?.navigationBar.barStyle = .default
     }
     
     override func viewDidLoad() {
@@ -108,6 +117,28 @@ class UserInfoVC: UIViewController ,UITableViewDataSource, UITableViewDelegate{
         
         let cell = tableV.wf_dequeueReusableCell(indexPath: indexPath) as UserTableCell
         cell.myConcern = myDataArray[indexPath.row]
+        cell.usericonView.isHidden = true
+        cell.timeLab.text = (cell.myConcern.publishTime/1000).convertString()
+        
+        cell.playerBut.rx.tap.subscribe(onNext: { [weak self] in
+            // 如果有值，说明当前有正在播放的视频
+            if let priorCell = self!.priorCell {
+                if cell != priorCell {
+                    // 设置当前 cell 的属性
+                    priorCell.showSubviews()
+                    // 判断当前播放器是否正在播放
+                    if self!.player.isPlaying {
+                        self!.player.pause()
+                        self!.player.removeFromSuperview()
+                    }
+                    // 把播放器添加到 cell 上
+                    self!.addPlayer(on: cell)
+                }
+            } else { // 说明是第一次点击 cell，直接添加播放器
+                // 把播放器添加到 cell 上
+                self!.addPlayer(on: cell)
+            }
+        }).disposed(by: disposeBag)
         return cell
     }
     
@@ -126,10 +157,70 @@ class UserInfoVC: UIViewController ,UITableViewDataSource, UITableViewDelegate{
         }else{
             topView.isHidden = true;
         }
+        
+        // 说明有视频正在播放
+        if player.isPlaying {
+            let imageButton = player.superview
+            let contentView = imageButton?.superview
+            let cell = contentView?.superview as! UserTableCell
+            let rect = tableV.convert(cell.frame, to: self.view)
+            // 判断是否滑出屏幕
+            if (rect.origin.y <= -cell.height) || (rect.origin.y >= Kheight - tabBarController!.tabBar.height) {
+                removePlayer()
+                // 设置当前 cell 的属性
+                cell.showSubviews();
+            }
+        }
     }
     @IBAction func OnPopClick() {
         
+        tableV.removeFromSuperview()
         self.navigationController?.popViewController(animated: true)
     }
     
+}
+extension UserInfoVC{
+    /// 把播放器添加到 cell 上
+    private func addPlayer(on cell: UserTableCell) {
+        // 视频播放时隐藏 cell 的部分子视图
+        cell.hiddenSubviews();
+        cell.attentionBut.isHidden = true
+        cell.timeLab.isHidden = false
+        cell.playerBut.addSubview(self.player);
+        self.player.snp.makeConstraints({ $0.edges.equalTo(cell.playerBut) })
+        
+        // 设置视频播放地址
+        self.player.setVideo(resource: BMPlayerResource(url: URL(string: cell.myConcern.streams[0].url)!))
+        self.priorCell = cell
+        
+    }
+    
+    /// 移除播放器
+    private func removePlayer() {
+        player.pause()
+        player.removeFromSuperview()
+        priorCell = nil
+    }
+}
+extension UserInfoVC: BMPlayerDelegate {
+    
+    func bmPlayer(player: BMPlayer, playerStateDidChange state: BMPlayerState) {
+        
+    }
+    
+    func bmPlayer(player: BMPlayer, loadedTimeDidChange loadedDuration: TimeInterval, totalDuration: TimeInterval) {
+        
+    }
+    
+    func bmPlayer(player: BMPlayer, playTimeDidChange currentTime: TimeInterval, totalTime: TimeInterval) {
+
+    }
+    
+    func bmPlayer(player: BMPlayer, playerIsPlaying playing: Bool) {
+        
+    }
+    
+    func bmPlayer(player: BMPlayer, playerOrientChanged isFullscreen: Bool) {
+        
+    }
 }

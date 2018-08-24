@@ -20,7 +20,8 @@ class RecommendVC: UIViewController , UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var tableV: UITableView!
     let pageNO = 1
     
-    
+    /// 懒加载 头部
+    private lazy var videoPlayerV = VideoPlayerView.loadViewFromNib()
     private lazy var disposeBag = DisposeBag()
     /// 上一次播放的 cell
     private var priorCell: UserTableCell?
@@ -28,6 +29,8 @@ class RecommendVC: UIViewController , UITableViewDelegate, UITableViewDataSource
     lazy var player: BMPlayer = BMPlayer(customControlView: VideoPlayerCustomView())
     /// 当前播放的时间
     private var currentTime: TimeInterval = 0
+    
+    
     
     func recommendRequset()  {
         // 设置当前 cell 的属性
@@ -143,15 +146,31 @@ class RecommendVC: UIViewController , UITableViewDelegate, UITableViewDataSource
             let rect = cell.convert(cell.bounds, to: window)
             printCtm(rect)
        
-            let vc = VideoPlayerVC()
-            vc.player = self?.player
-            vc.rect = rect
-            vc.videoId = cell.myConcern.videoId
-            self?.present(vc, animated: false, completion: nil)
+
+            
+            self?.videoPlayerV.player = self?.player
+            self?.videoPlayerV.rect = rect
+            self?.videoPlayerV.videoId = cell.myConcern.videoId
+            self?.videoPlayerV.frame = CGRect(x: 0, y: 0, width: Kwidth, height: Kheight)
+
+            self?.navigationController?.navigationBar.barStyle = .black
+            self?.videoPlayerV.block = {[weak self] in
+                self?.removePlayer()
+                self?.navigationController?.navigationBar.barStyle = .default
+            }
+            self?.videoPlayerV.viewDidLoadData()
+            window?.addSubview((self?.videoPlayerV)!)
             self?.priorCell?.showSubviews()
             
         }).disposed(by: disposeBag)
         
+        
+        cell.userBut.rx.tap.subscribe(onNext: { [weak self] in
+            let vc = UserInfoVC()
+            vc.hidesBottomBarWhenPushed = true
+            vc.userID = "\(cell.myConcern.user.id)"
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }).disposed(by: disposeBag)
         return cell
     }
     

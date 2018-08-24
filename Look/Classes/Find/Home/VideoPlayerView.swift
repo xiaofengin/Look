@@ -1,8 +1,8 @@
 //
-//  VideoPlayerVC.swift
+//  VideoPlayerView.swift
 //  Look
 //
-//  Created by 王峰 on 2018/8/19.
+//  Created by 王峰 on 2018/8/21.
 //  Copyright © 2018年 王峰. All rights reserved.
 //
 
@@ -10,8 +10,8 @@ import UIKit
 import SwiftyJSON
 import Kingfisher
 import BMPlayer
-class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource ,NibLoadable{
+
     @IBOutlet weak var topTableValue: NSLayoutConstraint!
     
     @IBOutlet weak var tableV: UITableView!
@@ -36,71 +36,59 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     // 存储用户数据
     var userData = MeCollectModel()
-
+    
     /// 播放器
-    lazy var player: BMPlayer = BMPlayer(customControlView: VideoPlayerCustomView())
-
+    var player: BMPlayer?
+    var rect:CGRect?
     
     // 存储评论视频cell高度
     var cellHeightArray = [CGFloat]()
     var userArray = [User]()
     var videoId = ""
     var page = 1
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
-//        UIApplication.shared.statusBarStyle = .lightContent;
-//        setStatusBarBackgroundColor(color: UIColor.clear)
-        self.navigationController?.navigationBar.barStyle = .black
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = false
-//        UIApplication.shared.statusBarStyle = .default;
-//        setStatusBarBackgroundColor(color: UIColor.white)
-        self.navigationController?.navigationBar.barStyle = .default
-    }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    var block:(()->())?
 
-        UIView.animate(withDuration: 0.5, animations: {
-            self.player.snp.makeConstraints({
-                $0.top.equalTo(self.view).offset(0)
-            })
-            self.view.layoutIfNeeded()
-        }) { (isCompletion) in
-            self.view.backgroundColor = UIColor.white.withAlphaComponent(1)
-            //将view1挪到最下边
-            self.view.sendSubview(toBack: self.player)
-        }
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        ///http://api.klm123.com/video/getInfo?src=1000&t=1534669545.992945&videoId=8307d8afd594
-        
+    
+    
+    func viewDidLoadData() {
+        tableV.alpha = 1
         tableV.wf_registerCell(cell: ConcernTableCell.self)
         tableV.wf_registerCell(cell: CommentTableCell.self)
         
         topTableValue.constant = 360*Kwidth/640
         userIconImageV.layer.masksToBounds = true
         userIconImageV.layer.cornerRadius = 15.5
+        
         BMPlayerManager.shared.topBarShowInCase = .always
         
-        view.addSubview(player)
-        self.player.snp.makeConstraints({
-            $0.top.equalTo(self.view).offset(0)
-            $0.left.right.equalTo(self.view)
-            $0.height.equalTo(Kwidth*360/640)
-        })
+        //        view.backgroundColor = UIColor.white.withAlphaComponent(1)
         
-       updateData()
+        self.addSubview(player!)
+        self.player?.snp.makeConstraints({
+            $0.top.equalTo(self).offset((rect?.origin.y)!-64)
+            $0.left.right.equalTo(self)
+            $0.height.equalTo((rect?.size.height)!-50)
+        })
+        // 注意需要先执行一次更新约束
+        self.layoutIfNeeded()
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.1) {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.player?.snp.makeConstraints({
+                    $0.top.equalTo(self).offset(0)
+                })
+                self.layoutIfNeeded()
+            }) { (isCompletion) in
+                self.backgroundColor = UIColor.white.withAlphaComponent(1)
+                //将view1挪到最下边
+                self.sendSubview(toBack: self.player!)
+            }
+        }
+        updateData(false)
     }
-    func updateData() {
+    
+    func updateData(_ logo:Bool) {
         NetworkRequest(page: page)
         ///视频详情
         let url = "http://api.klm123.com/video/getInfo?src=1000&t=\((UserDefaults.standard.object(forKey: startTimeUD) as! String))&videoId=\(videoId)"
@@ -120,11 +108,16 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                     self.mainTitleLab.text = self.userData.title
                     self.subTitleLab.text = "\(self.userData.user.fn.convertString())次播放 \(self.userData.publishTime.convertString())发布"
                     self.collectionLab.text = self.userData.cn.convertString()
-                    // 设置视频播放地址
-                    self.player.setVideo(resource: BMPlayerResource(url: URL(string: self.userData.streams[0].url)!))
+                   
+                    if logo{
+                        // 设置视频播放地址
+                        self.player?.setVideo(resource: BMPlayerResource(url: URL(string: self.userData.streams[0].url)!))
+                    }
+                    
                 }
                 
             }
+           
         })
         
         
@@ -174,14 +167,14 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     // 每组头部的高度
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
-             return 50
+            return 50
         }
         return 0.01
     }
     
     // 每组头部视图
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-      
+        
         if section==0 {
             return sectionView
         }
@@ -206,7 +199,7 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }else{
             return cellHeightArray[indexPath.row]
         }
-      
+        
     }
     
     // 组数
@@ -231,7 +224,7 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             cell.model = myCommentArray[indexPath.row]
             return cell
         }
-       
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -239,10 +232,10 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         let model = myRecommendArray[indexPath.row]
         videoId = model.videoId
-        updateData()
+        updateData(true)
         
     }
-
+    
     @IBAction func OnExpandClick(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         if sender.isSelected {
@@ -253,7 +246,7 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             topView.height = 70
             mainTitleHeight.constant = 20
         }
-
+        
         tableV.reloadData()
     }
     
@@ -261,8 +254,42 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
     }
     @IBAction func OnBlockClick() {
-    
-        navigationController?.popViewController(animated: true)
+        
+       
+        
+        tableV.alpha = 0
+        self.backgroundColor = UIColor.white.withAlphaComponent(0)
+        
 
+        UIView.animate(withDuration: 0.5, animations: {
+            self.y = (self.rect?.origin.y)!
+
+        }) { (isCompletion) in
+
+            self.removeFromSuperview()
+            self.block?()
+        }
+      
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -11,7 +11,7 @@ import SwiftyJSON
 import BMPlayer
 import RxSwift
 import RxCocoa
-class MoreSubVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MoreSubVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     
 
@@ -20,7 +20,8 @@ class MoreSubVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var isLoad = true
     var pageNo = 1
     var channelId = ""
-    
+    /// 懒加载 头部
+    private lazy var videoPlayerV = VideoPlayerView.loadViewFromNib()
     private lazy var disposeBag = DisposeBag()
     /// 上一次播放的 cell
     private var priorCell: UserTableCell?
@@ -103,7 +104,56 @@ class MoreSubVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }).disposed(by: disposeBag)
         
+        cell.commentBut.rx.tap.subscribe(onNext: { [weak self] in
+            
+            // 如果有值，说明当前有正在播放的视频
+            if let priorCell = self!.priorCell {
+                if cell != priorCell {
+                    // 设置当前 cell 的属性
+                    priorCell.showSubviews()
+                    // 判断当前播放器是否正在播放
+                    if self!.player.isPlaying {
+                        self!.player.pause()
+                        self!.player.removeFromSuperview()
+                    }
+                    // 把播放器添加到 cell 上
+                    self!.addPlayer(on: cell)
+                }
+            } else { // 说明是第一次点击 cell，直接添加播放器
+                // 把播放器添加到 cell 上
+                self!.addPlayer(on: cell)
+            }
+            
+            let window = UIApplication.shared.keyWindow
+            
+            let rect = cell.convert(cell.bounds, to: window)
+            printCtm(rect)
+            
+            
+            
+            self?.videoPlayerV.player = self?.player
+            self?.videoPlayerV.rect = rect
+            self?.videoPlayerV.videoId = cell.myConcern.videoId
+            self?.videoPlayerV.frame = CGRect(x: 0, y: 0, width: Kwidth, height: Kheight)
+            
+            self?.navigationController?.navigationBar.barStyle = .black
+            self?.videoPlayerV.block = {[weak self] in
+                self?.removePlayer()
+                self?.navigationController?.navigationBar.barStyle = .default
+            }
+            self?.videoPlayerV.viewDidLoadData()
+            window?.addSubview((self?.videoPlayerV)!)
+            self?.priorCell?.showSubviews()
+            
+        }).disposed(by: disposeBag)
         
+        
+        cell.userBut.rx.tap.subscribe(onNext: { [weak self] in
+            let vc = UserInfoVC()
+            vc.hidesBottomBarWhenPushed = true
+            vc.userID = "\(cell.myConcern.user.id)"
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }).disposed(by: disposeBag)
         return cell
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

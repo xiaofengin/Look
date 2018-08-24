@@ -219,7 +219,7 @@
                                 <constraint firstAttribute="width" secondItem="nEA-f9-HCd" secondAttribute="height" multiplier="1:1" id="KVt-qp-bcC"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txH-Lr-hu0">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txH-Lr-hu0">
                             <rect key="frame" x="36" y="0.0" width="179" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="SQJ-Ji-aKE"/>

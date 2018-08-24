@@ -18,6 +18,7 @@ class ConcernHeaderView: UIView ,NibLoadable{
     @IBOutlet weak var timeLab: UILabel!
     @IBOutlet weak var titleLab: UILabel!
     @IBOutlet weak var headBut: UIButton!
+    @IBOutlet weak var hederViedoBut: UIButton!
     
 
     

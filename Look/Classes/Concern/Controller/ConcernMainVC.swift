@@ -76,6 +76,18 @@ class ConcernMainVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
                 
             })
             .disposed(by: disposeBag)
+        
+        view.hederViedoBut.rx.tap
+            .subscribe(onNext: { [weak self] in
+                printCtm(section)
+                let vc = VideoPlayerVC()
+                vc.hidesBottomBarWhenPushed = true
+                vc.videoId = (self?.myDataArray[section][0].videoId)!
+                self?.navigationController?.pushViewController(vc, animated: true)
+                
+            })
+            .disposed(by: disposeBag)
+        
         view.myConcern = myDataArray[section][0]
         view.userData = userArray[section]
         
@@ -118,6 +130,10 @@ class ConcernMainVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
        
+        let vc = VideoPlayerVC()
+        vc.hidesBottomBarWhenPushed = true
+        vc.videoId = (self.myDataArray[indexPath.section][indexPath.row+1].videoId)
+        self.navigationController?.pushViewController(vc, animated: true)
         
 
     }

@@ -9,6 +9,9 @@
 import UIKit
 import SwiftyJSON
 import Kingfisher
+import RxSwift
+import RxCocoa
+import BMPlayer
 class FindVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // 存储 cell的数据
@@ -17,6 +20,13 @@ class FindVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var lastContentOffset: CGFloat = 0.0
     
+    /// 懒加载 头部
+    private lazy var videoPlayerV = VideoPlayerView.loadViewFromNib()
+    private lazy var disposeBag = DisposeBag()
+    /// 上一次播放的 cell
+    private var priorCell: UserTableCell?
+    /// 播放器
+    lazy var player: BMPlayer = BMPlayer(customControlView: VideoPlayerCustomView())
     
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var keyLab: UILabel!
@@ -90,6 +100,76 @@ class FindVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableV.wf_dequeueReusableCell(indexPath: indexPath) as UserTableCell
         cell.myConcern = myDataArray[indexPath.row]
+        cell.playerBut.rx.tap.subscribe(onNext: { [weak self] in
+            // 如果有值，说明当前有正在播放的视频
+            if let priorCell = self!.priorCell {
+                if cell != priorCell {
+                    // 设置当前 cell 的属性
+                    priorCell.showSubviews()
+                    // 判断当前播放器是否正在播放
+                    if self!.player.isPlaying {
+                        self!.player.pause()
+                        self!.player.removeFromSuperview()
+                    }
+                    // 把播放器添加到 cell 上
+                    self!.addPlayer(on: cell)
+                }
+            } else { // 说明是第一次点击 cell，直接添加播放器
+                // 把播放器添加到 cell 上
+                self!.addPlayer(on: cell)
+            }
+        }).disposed(by: disposeBag)
+        
+        cell.commentBut.rx.tap.subscribe(onNext: { [weak self] in
+            
+            // 如果有值，说明当前有正在播放的视频
+            if let priorCell = self!.priorCell {
+                if cell != priorCell {
+                    // 设置当前 cell 的属性
+                    priorCell.showSubviews()
+                    // 判断当前播放器是否正在播放
+                    if self!.player.isPlaying {
+                        self!.player.pause()
+                        self!.player.removeFromSuperview()
+                    }
+                    // 把播放器添加到 cell 上
+                    self!.addPlayer(on: cell)
+                }
+            } else { // 说明是第一次点击 cell，直接添加播放器
+                // 把播放器添加到 cell 上
+                self!.addPlayer(on: cell)
+            }
+            
+            let window = UIApplication.shared.keyWindow
+            
+            let rect = cell.convert(cell.bounds, to: window)
+            printCtm(rect)
+            
+            
+            
+            self?.videoPlayerV.player = self?.player
+            self?.videoPlayerV.rect = rect
+            self?.videoPlayerV.videoId = cell.myConcern.videoId
+            self?.videoPlayerV.frame = CGRect(x: 0, y: 0, width: Kwidth, height: Kheight)
+            
+            self?.navigationController?.navigationBar.barStyle = .black
+            self?.videoPlayerV.block = {[weak self] in
+                self?.removePlayer()
+                self?.navigationController?.navigationBar.barStyle = .default
+            }
+            self?.videoPlayerV.viewDidLoadData()
+            window?.addSubview((self?.videoPlayerV)!)
+            self?.priorCell?.showSubviews()
+            
+        }).disposed(by: disposeBag)
+        
+        
+        cell.userBut.rx.tap.subscribe(onNext: { [weak self] in
+            let vc = UserInfoVC()
+            vc.hidesBottomBarWhenPushed = true
+            vc.userID = "\(cell.myConcern.user.id)"
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }).disposed(by: disposeBag)
         return cell
     }
     
@@ -97,22 +177,6 @@ class FindVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
-    
-//    //实现scrollView代理
-//    - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-//    //全局变量记录滑动前的contentOffset
-//    lastContentOffset = scrollView.contentOffset.y;//判断上下滑动时
-//
-//    //    lastContentOffset = scrollView.contentOffset.x;//判断左右滑动时
-//    }
-//    - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    if (scrollView.contentOffset.y < lastContentOffset ){
-//    //向上
-//    NSLog(@"上滑");
-//    } else if (scrollView.contentOffset.y > lastContentOffset ){
-//    //向下
-//    NSLog(@"下滑");
-//    }
 
     //在拖动开始时调用（可能需要一些时间和/或移动距离）
     //将要开始拖拖，手指已经放在查看上并准备拖动的那一刻
@@ -136,5 +200,55 @@ class FindVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        // 说明有视频正在播放
+        if player.isPlaying {
+            let imageButton = player.superview
+            let contentView = imageButton?.superview
+            let cell = contentView?.superview as! UserTableCell
+            let rect = tableV.convert(cell.frame, to: self.view)
+            // 判断是否滑出屏幕
+            if (rect.origin.y <= -cell.height) || (rect.origin.y >= Kheight - tabBarController!.tabBar.height) {
+                removePlayer()
+                // 设置当前 cell 的属性
+                cell.showSubviews();
+            }
+        }
+        
+    }
+    
+    @IBAction func OnTitleButClick(_ sender: UIButton) {
+        let vc = MoreSubVC()
+        vc.channelId = "\(setsArray[sender.tag-21]["id"] ?? 0)"
+        vc.hidesBottomBarWhenPushed = true
+        vc.MoreSubRequset()
+        vc.title = (setsArray[sender.tag-21]["name"] as! String)
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    @IBAction func OnSerchClick() {
+    }
+    
+}
+extension FindVC{
+    /// 把播放器添加到 cell 上
+    private func addPlayer(on cell: UserTableCell) {
+        // 视频播放时隐藏 cell 的部分子视图
+        cell.hiddenSubviews();
+        cell.playerBut.addSubview(self.player);
+        self.player.snp.makeConstraints({ $0.edges.equalTo(cell.playerBut) })
+        
+        // 设置视频播放地址
+        self.player.setVideo(resource: BMPlayerResource(url: URL(string: cell.myConcern.streams[0].url)!))
+        self.priorCell = cell
+        
+    }
+    
+    /// 移除播放器
+    private func removePlayer() {
+        player.pause()
+        player.removeFromSuperview()
+        priorCell = nil
+    }
 }

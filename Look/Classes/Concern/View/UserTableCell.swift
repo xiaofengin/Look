@@ -29,6 +29,7 @@ class UserTableCell: UITableViewCell, RegisterCellFromNib {
     @IBOutlet weak var weixinWeight: NSLayoutConstraint!
     
     @IBOutlet weak var playerBut: UIButton!
+    @IBOutlet weak var userBut: UIButton!
     
     var myConcern = MeCollectModel(){
         didSet{
