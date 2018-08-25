@@ -70,6 +70,11 @@ class UserInfoVC: UIViewController ,UITableViewDataSource, UITableViewDelegate{
         userIconImageV.layer.masksToBounds = true
         userIconImageV.layer.cornerRadius = 40;
         tableV.wf_registerCell(cell: UserTableCell.self)
+        tableV.estimatedRowHeight = 0
+        tableV.mj_footer = MJRefreshAutoGifFooter(refreshingBlock: {
+            self.pageNo += 1
+            self.NetworkRequest(page: self.pageNo)
+        })
         NetworkRequest(page: pageNo)
 
     }
@@ -80,7 +85,8 @@ class UserInfoVC: UIViewController ,UITableViewDataSource, UITableViewDelegate{
         let url = "http://api.klm123.com/user/getVideoList?src=1000&t=\((UserDefaults.standard.object(forKey: startTimeUD) as! String))&pageNo=\(page)&pageSize=10&userId=\(userID)"
         
         WFNetworkRequest.sharedInstance.ToolRequest(url: url, isPost: false, params: nil, success: { (dataDict) in
-            
+            if self.tableV.mj_footer.isRefreshing{self.tableV.mj_footer.endRefreshing()}
+            self.tableV.mj_footer.pullingPercent = 0.0
             let jsonData = JSON(dataDict)
             printCtm(jsonData)
             if jsonData["code"] == 0{
@@ -88,7 +94,7 @@ class UserInfoVC: UIViewController ,UITableViewDataSource, UITableViewDelegate{
                 self.totalCount = jsonData["data"]["pager"]["totalCount"].int!
                 if let collectArray = jsonData["data"]["videos"].arrayObject{
 
-                    self.myDataArray = collectArray.compactMap({ MeCollectModel.deserialize(from: $0 as? Dictionary) })
+                    self.myDataArray += collectArray.compactMap({ MeCollectModel.deserialize(from: $0 as? Dictionary) })
                     
                     self.tableV.reloadData()
                 }

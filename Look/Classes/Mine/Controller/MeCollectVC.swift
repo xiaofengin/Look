@@ -20,6 +20,7 @@ class MeCollectVC: BaseViewController, UITableViewDataSource, UITableViewDelegat
         self.title = "我的收藏"
 
         tableV.wf_registerCell(cell: MeCollectTableCell.self)
+        tableV.estimatedRowHeight = 0
         ///获取用户收藏信息接口
         let url = "http://api.klm123.com/collection/getCollectionList?src=1000&t=" + (UserDefaults.standard.object(forKey: startTimeUD) as! String) + "&pageNo=1&pageSize=10"
         WFNetworkRequest.sharedInstance.ToolRequest(url: url, isPost: false, params: nil, success: { (dataDict) in

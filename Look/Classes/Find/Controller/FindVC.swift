@@ -20,6 +20,8 @@ class FindVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var lastContentOffset: CGFloat = 0.0
     
+    var pageNo = 1
+    
     /// 懒加载 头部
     private lazy var videoPlayerV = VideoPlayerView.loadViewFromNib()
     private lazy var disposeBag = DisposeBag()
@@ -44,8 +46,13 @@ class FindVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
 
         tableV.wf_registerCell(cell: UserTableCell.self)
+        tableV.mj_footer = MJRefreshAutoGifFooter(refreshingBlock: {
+            self.pageNo += 1
+            self.NetworkRequest(page: self.pageNo)
+        })
+        tableV.estimatedRowHeight = 0
         topView.height = 40+65+(Kwidth-60)/5
-        NetworkRequest(page: 1)
+        NetworkRequest(page: pageNo)
     }
 
     func NetworkRequest(page: Int) {
@@ -54,7 +61,8 @@ class FindVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let url = "http://api.klm123.com/discover/getList/v/4?src=1000&t=\((UserDefaults.standard.object(forKey: startTimeUD) as! String))&lastId=0&pageNo=\(page)&pageSize=10"
         
         WFNetworkRequest.sharedInstance.ToolRequest(url: url, isPost: false, params: nil, success: { (dataDict) in
-            
+            if self.tableV.mj_footer.isRefreshing{self.tableV.mj_footer.endRefreshing()}
+            self.tableV.mj_footer.pullingPercent = 0.0
             let jsonData = JSON(dataDict)
             printCtm(jsonData)
             if jsonData["code"] == 0{
@@ -63,7 +71,7 @@ class FindVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 
                 if let collectArray = jsonData["data"]["videos"].arrayObject{
                     
-                    self.myDataArray = collectArray.compactMap({ MeCollectModel.deserialize(from: $0 as? Dictionary) })
+                    self.myDataArray += collectArray.compactMap({ MeCollectModel.deserialize(from: $0 as? Dictionary) })
                     
                     self.tableV.reloadData()
                 }

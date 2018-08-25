@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 import Kingfisher
 import BMPlayer
+
 class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var topTableValue: NSLayoutConstraint!
@@ -45,7 +46,7 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var cellHeightArray = [CGFloat]()
     var userArray = [User]()
     var videoId = ""
-    var page = 1
+    var pageNo = 1
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -85,7 +86,11 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         tableV.wf_registerCell(cell: ConcernTableCell.self)
         tableV.wf_registerCell(cell: CommentTableCell.self)
-        
+        tableV.estimatedRowHeight = 0
+        tableV.mj_footer = MJRefreshAutoGifFooter(refreshingBlock: {
+            self.pageNo += 1
+            self.NetworkRequest(page: self.pageNo)
+        })
         topTableValue.constant = 360*Kwidth/640
         userIconImageV.layer.masksToBounds = true
         userIconImageV.layer.cornerRadius = 15.5
@@ -101,7 +106,7 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
        updateData()
     }
     func updateData() {
-        NetworkRequest(page: page)
+        NetworkRequest(page: pageNo)
         ///视频详情
         let url = "http://api.klm123.com/video/getInfo?src=1000&t=\((UserDefaults.standard.object(forKey: startTimeUD) as! String))&videoId=\(videoId)"
         
@@ -152,15 +157,19 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         WFNetworkRequest.sharedInstance.ToolRequest(url: url, isPost: false, params: nil, success: { (dataDict) in
             
+            if self.tableV.mj_footer.isRefreshing{self.tableV.mj_footer.endRefreshing()}
+            self.tableV.mj_footer.pullingPercent = 0.0
+            
             let jsonData = JSON(dataDict)
             printCtm(jsonData)
             if jsonData["code"] == 0{
                 
                 if let collectArray = jsonData["data"]["comments"].arrayObject{
                     
-                    self.myCommentArray = collectArray.compactMap({ ContentModel.deserialize(from: $0 as? Dictionary) })
+                    self.myCommentArray += collectArray.compactMap({ ContentModel.deserialize(from: $0 as? Dictionary) })
                     
                     for (itemModel) in self.myCommentArray{
+                        self.cellHeightArray.removeAll()
                         self.cellHeightArray.append(itemModel.content.textHeight(fontSize: 16.0, width: Kwidth-105)+85)
                     }
                     
@@ -237,10 +246,12 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let model = myRecommendArray[indexPath.row]
-        videoId = model.videoId
-        updateData()
-        
+        if indexPath.section == 0 {
+            let model = myRecommendArray[indexPath.row]
+            videoId = model.videoId
+            updateData()
+        }
+       
     }
 
     @IBAction func OnExpandClick(_ sender: UIButton) {

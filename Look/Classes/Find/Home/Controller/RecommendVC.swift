@@ -18,7 +18,7 @@ class RecommendVC: UIViewController , UITableViewDelegate, UITableViewDataSource
     
     
     @IBOutlet weak var tableV: UITableView!
-    let pageNO = 1
+    var pageNo = 1
     
     /// 懒加载 头部
     private lazy var videoPlayerV = VideoPlayerView.loadViewFromNib()
@@ -51,7 +51,12 @@ class RecommendVC: UIViewController , UITableViewDelegate, UITableViewDataSource
 
         player.delegate = self
         tableV.wf_registerCell(cell: UserTableCell.self)
-        NetworkRequest(page: pageNO)
+        tableV.estimatedRowHeight = 0
+        tableV.mj_footer = MJRefreshAutoGifFooter(refreshingBlock: {
+            self.pageNo += 1
+            self.NetworkRequest(page: self.pageNo)
+        })
+        NetworkRequest(page: pageNo)
     }
 
 
@@ -70,13 +75,16 @@ class RecommendVC: UIViewController , UITableViewDelegate, UITableViewDataSource
         
         WFNetworkRequest.sharedInstance.ToolRequest(url: url, isPost: false, params: nil, success: { (dataDict) in
             
+            if self.tableV.mj_footer.isRefreshing{self.tableV.mj_footer.endRefreshing()}
+            self.tableV.mj_footer.pullingPercent = 0.0
+            
             let jsonData = JSON(dataDict)
             printCtm(jsonData)
             if jsonData["code"] == 0{
                 
                 if let collectArray = jsonData["data"]["items"].arrayObject{
                     
-                    self.myDataArray = collectArray.compactMap({ HotNewsModel.deserialize(from: $0 as? Dictionary) })
+                    self.myDataArray += collectArray.compactMap({ HotNewsModel.deserialize(from: $0 as? Dictionary) })
                     
                     self.tableV.reloadData()
                 }

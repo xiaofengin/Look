@@ -26,7 +26,7 @@ class SmallVideoCommentView: UIView ,UITableViewDataSource, UITableViewDelegate,
     
     func loadView() {
         tableV.wf_registerCell(cell: CommentTableCell.self)
-        
+        tableV.estimatedRowHeight = 0
 //        topView.corner(byRoundingCorners: [UIRectCorner.topLeft, UIRectCorner.topRight], radii: 10)
 
     }
@@ -48,6 +48,7 @@ class SmallVideoCommentView: UIView ,UITableViewDataSource, UITableViewDelegate,
                     self.myCommentArray = collectArray.compactMap({ ContentModel.deserialize(from: $0 as? Dictionary) })
                     
                     for (itemModel) in self.myCommentArray{
+                        self.cellHeightArray.removeAll()
                         self.cellHeightArray.append(itemModel.content.textHeight(fontSize: 16.0, width: Kwidth-105)+85)
                     }
                     self.tableV.reloadData()

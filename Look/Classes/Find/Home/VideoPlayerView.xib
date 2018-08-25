@@ -29,7 +29,7 @@
                         <action selector="OnBlockClick" destination="bOc-81-Wjn" eventType="touchUpInside" id="eNh-qW-LfI"/>
                     </connections>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="my6-Qu-C0L">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="my6-Qu-C0L">
                     <rect key="frame" x="0.0" y="60" width="375" height="557"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <view key="tableHeaderView" contentMode="scaleToFill" id="7iv-gy-EA3">
@@ -37,7 +37,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hye-NG-VDZ">
-                                <rect key="frame" x="10" y="10" width="260" height="19.5"/>
+                                <rect key="frame" x="10" y="10" width="315" height="19.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="iW8-fw-RQJ"/>
                                 </constraints>
@@ -46,7 +46,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMV-Cq-4OU">
-                                <rect key="frame" x="280" y="0.0" width="40" height="40"/>
+                                <rect key="frame" x="335" y="0.0" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="pKU-hc-A2x"/>
                                     <constraint firstAttribute="height" constant="40" id="wUV-ga-oh8"/>
@@ -58,7 +58,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pfk-AT-vf0">
-                                <rect key="frame" x="10" y="40" width="260" height="20"/>
+                                <rect key="frame" x="10" y="40" width="315" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="7sA-Wa-OT4"/>
                                 </constraints>

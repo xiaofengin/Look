@@ -43,6 +43,7 @@ class MineVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableV.wf_registerCell(cell: MineTableCell.self)
         tableV.wf_registerCell(cell: PlayRecordTableCell.self)
+        tableV.estimatedRowHeight = 0
         setStatusBarBackgroundColor(color: .white)
 
         if UserDefaults.standard.object(forKey: userUD) == nil{

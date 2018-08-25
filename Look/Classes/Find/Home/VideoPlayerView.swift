@@ -45,7 +45,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource ,NibLo
     var cellHeightArray = [CGFloat]()
     var userArray = [User]()
     var videoId = ""
-    var page = 1
+    var pageNo = 1
     var block:(()->())?
 
     
@@ -54,7 +54,11 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource ,NibLo
         tableV.alpha = 1
         tableV.wf_registerCell(cell: ConcernTableCell.self)
         tableV.wf_registerCell(cell: CommentTableCell.self)
-        
+        tableV.estimatedRowHeight = 0
+        tableV.mj_footer = MJRefreshAutoGifFooter(refreshingBlock: {
+            self.pageNo += 1
+            self.NetworkRequest(page: self.pageNo)
+        })
         topTableValue.constant = 360*Kwidth/640
         userIconImageV.layer.masksToBounds = true
         userIconImageV.layer.cornerRadius = 15.5
@@ -89,7 +93,7 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource ,NibLo
     }
     
     func updateData(_ logo:Bool) {
-        NetworkRequest(page: page)
+        NetworkRequest(page: pageNo)
         ///视频详情
         let url = "http://api.klm123.com/video/getInfo?src=1000&t=\((UserDefaults.standard.object(forKey: startTimeUD) as! String))&videoId=\(videoId)"
         
@@ -144,16 +148,18 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource ,NibLo
         let url = "http://api.klm123.com/comment/getCommentList/v2?src=1000&t=\((UserDefaults.standard.object(forKey: startTimeUD) as! String))&lastId=0&pageNo=\(page)&pageSize=10&videoId=\(videoId)"
         
         WFNetworkRequest.sharedInstance.ToolRequest(url: url, isPost: false, params: nil, success: { (dataDict) in
-            
+            if self.tableV.mj_footer.isRefreshing{self.tableV.mj_footer.endRefreshing()}
+            self.tableV.mj_footer.pullingPercent = 0.0
             let jsonData = JSON(dataDict)
             printCtm(jsonData)
             if jsonData["code"] == 0{
                 
                 if let collectArray = jsonData["data"]["comments"].arrayObject{
                     
-                    self.myCommentArray = collectArray.compactMap({ ContentModel.deserialize(from: $0 as? Dictionary) })
+                    self.myCommentArray += collectArray.compactMap({ ContentModel.deserialize(from: $0 as? Dictionary) })
                     
                     for (itemModel) in self.myCommentArray{
+                        self.cellHeightArray.removeAll()
                         self.cellHeightArray.append(itemModel.content.textHeight(fontSize: 16.0, width: Kwidth-105)+85)
                     }
                     
@@ -230,9 +236,12 @@ class VideoPlayerView: UIView, UITableViewDelegate, UITableViewDataSource ,NibLo
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let model = myRecommendArray[indexPath.row]
-        videoId = model.videoId
-        updateData(true)
+        if indexPath.section == 0 {
+            let model = myRecommendArray[indexPath.row]
+            videoId = model.videoId
+            updateData(true)
+        }
+        
         
     }
     

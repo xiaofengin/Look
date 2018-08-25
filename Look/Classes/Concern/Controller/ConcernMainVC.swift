@@ -14,7 +14,7 @@ class ConcernMainVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
 
      let disposeBag = DisposeBag()
     @IBOutlet weak var tableV: UITableView!
-    
+    var pageNo = 1
     // 存储 cell的数据
     var myDataArray = [[MeCollectModel]]()
     var userArray = [User]()
@@ -24,12 +24,22 @@ class ConcernMainVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
         super.viewDidLoad()
 
         tableV.wf_registerCell(cell: ConcernTableCell.self)
+        tableV.mj_footer = MJRefreshAutoGifFooter(refreshingBlock: {
+            self.pageNo += 1
+            self.NetworkRequest(page: self.pageNo)
+        })
+        tableV.estimatedRowHeight = 0
         self.title = "关注"
-        
+        NetworkRequest(page: pageNo)
+       
+    }
+    func NetworkRequest(page: Int) {
         ///获取关注信息接口
-        let url = "http://api.klm123.com/fans/getFeedList?src=1000&t=" + (UserDefaults.standard.object(forKey: startTimeUD) as! String) + "&pageNo=1&pageSize=10"
+        let url = "http://api.klm123.com/fans/getFeedList?src=1000&t=" + (UserDefaults.standard.object(forKey: startTimeUD) as! String) + "&pageNo=\(page)&pageSize=10"
         WFNetworkRequest.sharedInstance.ToolRequest(url: url, isPost: false, params: nil, success: { (dataDict) in
             
+            if self.tableV.mj_footer.isRefreshing{self.tableV.mj_footer.endRefreshing()}
+            self.tableV.mj_footer.pullingPercent = 0.0
             let jsonData = JSON(dataDict)
             printCtm(jsonData)
             if jsonData["code"] == 0{
@@ -46,7 +56,7 @@ class ConcernMainVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
                                     subModel.append(MeCollectModel.deserialize(from: dict)!)
                                 }
                             }
-                                                    }
+                        }
                         self.myDataArray.append(subModel)
                     }
                     self.tableV .reloadData()
@@ -55,7 +65,6 @@ class ConcernMainVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
             }
         })
     }
-
 
     
     // 每组头部的高度

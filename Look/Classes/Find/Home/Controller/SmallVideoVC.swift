@@ -8,6 +8,8 @@
 
 import UIKit
 import SwiftyJSON
+import RxSwift
+import RxCocoa
 
 class SmallVideoVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
    
@@ -15,10 +17,10 @@ class SmallVideoVC: UIViewController, UICollectionViewDelegate, UICollectionView
     @IBOutlet weak var collectionV: UICollectionView!
     
 
-    let pageNo = 1
+    var pageNo = 1
     var smallVideoArray = [HotNewsModel]()
     var isLoad = true
-    
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,10 @@ class SmallVideoVC: UIViewController, UICollectionViewDelegate, UICollectionView
     
         ///http://api.klm123.com/channel/getListById/version/6?src=1000&t=1534057723.187437&channelId=100&pageNo=1&pageSize=10&rc=1
     
+        collectionV.mj_footer = MJRefreshAutoGifFooter(refreshingBlock: {
+            self.pageNo += 1
+            self.NetworkRequest(page: self.pageNo)
+        })
     }
     func smallVideoRequset()  {
         if isLoad {
@@ -50,13 +56,15 @@ class SmallVideoVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
         WFNetworkRequest.sharedInstance.ToolRequest(url: url, isPost: false, params: nil, success: { (dataDict) in
             
+            if self.collectionV.mj_footer.isRefreshing{self.collectionV.mj_footer.endRefreshing()}
+            self.collectionV.mj_footer.pullingPercent = 0.0
             let jsonData = JSON(dataDict)
             printCtm(jsonData)
             if jsonData["code"] == 0{
                 
                 if let collectArray = jsonData["data"]["items"].arrayObject{
                     
-                    self.smallVideoArray = collectArray.compactMap({ HotNewsModel.deserialize(from: $0 as? Dictionary) })
+                    self.smallVideoArray += collectArray.compactMap({ HotNewsModel.deserialize(from: $0 as? Dictionary) })
                     
                     self.collectionV.reloadData()
                 }
@@ -73,6 +81,15 @@ class SmallVideoVC: UIViewController, UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionV.wf_dequeueReusableCell(indexPath: indexPath) as SmallVideoCollectionCell
         cell.mySmallVideoData = smallVideoArray[indexPath.row]
+        cell.closeBut.tag = indexPath.row
+//        (self, action:#selector(titleSlect(sender:)), for: .touchUpInside)
+        cell.closeBut.addTarget(self, action: #selector(close(sender:)), for: .touchUpInside)
+//        cell.closeBut.rx.tap.subscribe(onNext: {
+//
+//            cell.closeBut.isUserInteractionEnabled = false
+//            self.smallVideoArray.remove(at: indexPath.row)
+//            self.collectionV.reloadData()
+//        }).disposed(by: disposeBag)
         return cell
     }
     
@@ -84,4 +101,9 @@ class SmallVideoVC: UIViewController, UICollectionViewDelegate, UICollectionView
         vc.smallVideoArray = smallVideoArray
         navigationController?.pushViewController(vc, animated: true)
     }
+    @objc func close(sender:UIButton)  {
+        self.smallVideoArray.remove(at: sender.tag)
+        self.collectionV.reloadData()
+    }
+    
 }

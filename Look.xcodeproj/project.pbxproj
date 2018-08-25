@@ -28,6 +28,8 @@
 		0A92A9B9212FB1470090D961 /* SmallVideoPlayerCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92A9B8212FB1470090D961 /* SmallVideoPlayerCustomView.swift */; };
 		0A92A9BB212FB8FE0090D961 /* SmallVideoCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92A9BA212FB8FE0090D961 /* SmallVideoCommentView.swift */; };
 		0A92A9BD212FB9950090D961 /* SmallVideoCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A92A9BC212FB9950090D961 /* SmallVideoCommentView.xib */; };
+		0A92A9CE21300FBD0090D961 /* webVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92A9CC21300FBD0090D961 /* webVC.swift */; };
+		0A92A9CF21300FBD0090D961 /* webVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A92A9CD21300FBD0090D961 /* webVC.xib */; };
 		0A9A4605211702C300E70C5D /* MeCollectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A4604211702C300E70C5D /* MeCollectModel.swift */; };
 		0A9A460821170CB500E70C5D /* MeCollectTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A460621170CB500E70C5D /* MeCollectTableCell.swift */; };
 		0A9A460921170CB500E70C5D /* MeCollectTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A460721170CB500E70C5D /* MeCollectTableCell.xib */; };
@@ -120,6 +122,7 @@
 		0A1092682115B48B00418E06 /* MeCollectVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeCollectVC.xib; sourceTree = "<group>"; };
 		0A1EFB1A212BA3CD006F5405 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		0A1EFB1C212BA3DA006F5405 /* VideoPlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPlayerView.xib; sourceTree = "<group>"; };
+		0A438B492130F0A30044E061 /* Look-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Look-Bridging-Header.h"; sourceTree = "<group>"; };
 		0A92A9B0212F9FBF0090D961 /* SmallVideoInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallVideoInfoVC.swift; sourceTree = "<group>"; };
 		0A92A9B1212F9FBF0090D961 /* SmallVideoInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallVideoInfoVC.xib; sourceTree = "<group>"; };
 		0A92A9B4212FA0660090D961 /* SmallVideoInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallVideoInfoCell.swift; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 		0A92A9B8212FB1470090D961 /* SmallVideoPlayerCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallVideoPlayerCustomView.swift; sourceTree = "<group>"; };
 		0A92A9BA212FB8FE0090D961 /* SmallVideoCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallVideoCommentView.swift; sourceTree = "<group>"; };
 		0A92A9BC212FB9950090D961 /* SmallVideoCommentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallVideoCommentView.xib; sourceTree = "<group>"; };
+		0A92A9CC21300FBD0090D961 /* webVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webVC.swift; sourceTree = "<group>"; };
+		0A92A9CD21300FBD0090D961 /* webVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = webVC.xib; sourceTree = "<group>"; };
 		0A9A4604211702C300E70C5D /* MeCollectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeCollectModel.swift; sourceTree = "<group>"; };
 		0A9A460621170CB500E70C5D /* MeCollectTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeCollectTableCell.swift; sourceTree = "<group>"; };
 		0A9A460721170CB500E70C5D /* MeCollectTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeCollectTableCell.xib; sourceTree = "<group>"; };
@@ -365,6 +370,7 @@
 		0A0AD7832111A40400A6A9AE /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				0A438B492130F0A30044E061 /* Look-Bridging-Header.h */,
 				0AD821042111A0D600A18252 /* AppDelegate.swift */,
 				0A0AD7842111A40400A6A9AE /* Const.swift */,
 				0A0AD7852111A40400A6A9AE /* MyNavigationVC.swift */,
@@ -434,6 +440,8 @@
 				0AB646EA21271EA7003F693C /* HomeVC.swift */,
 				0AB646EB21271EA7003F693C /* HotNewsVC.swift */,
 				0AB646EC21271EA7003F693C /* HotNewsVC.xib */,
+				0A92A9CC21300FBD0090D961 /* webVC.swift */,
+				0A92A9CD21300FBD0090D961 /* webVC.xib */,
 				0AB646ED21271EA7003F693C /* MoreSubVC.swift */,
 				0AB646EE21271EA7003F693C /* MoreSubVC.xib */,
 				0AB646EF21271EA7003F693C /* MoreVC.swift */,
@@ -664,6 +672,7 @@
 			files = (
 				0AC1DE2A2117E0FB00AF6CC6 /* ConcernHeaderView.xib in Resources */,
 				0AB6472421272153003F693C /* UserTableCell.xib in Resources */,
+				0A92A9CF21300FBD0090D961 /* webVC.xib in Resources */,
 				0AB6471E21271EA7003F693C /* SmallVideoCollectionCell.xib in Resources */,
 				0AB6471421271EA7003F693C /* title.plist in Resources */,
 				0A1EFB1D212BA3DA006F5405 /* VideoPlayerView.xib in Resources */,
@@ -722,6 +731,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BMPlayer/BMPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/IBAnimatable/IBAnimatable.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -729,19 +739,16 @@
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SGPagingView/SGPagingView.framework",
-				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftTheme/SwiftTheme.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BMPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IBAnimatable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
@@ -749,13 +756,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGPagingView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTheme.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -825,6 +828,7 @@
 				0AB6472121271EA7003F693C /* VideoPlayerCustomView.swift in Sources */,
 				0A92A9B6212FA0670090D961 /* SmallVideoInfoCell.swift in Sources */,
 				0AB6471021271EA7003F693C /* SmallVideoVC.swift in Sources */,
+				0A92A9CE21300FBD0090D961 /* webVC.swift in Sources */,
 				0AEC4A302119ED3400875A32 /* FindVC.swift in Sources */,
 				0AB6470721271EA7003F693C /* HomeVC.swift in Sources */,
 				0A92A9BB212FB8FE0090D961 /* SmallVideoCommentView.swift in Sources */,
@@ -1008,15 +1012,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DCV5F7FELN;
+				DEVELOPMENT_TEAM = FASL6EGAW8;
 				INFOPLIST_FILE = Look/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Look;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Look/Classes/Others/Look-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1030,15 +1035,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DCV5F7FELN;
+				DEVELOPMENT_TEAM = FASL6EGAW8;
 				INFOPLIST_FILE = Look/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Look;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Look/Classes/Others/Look-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

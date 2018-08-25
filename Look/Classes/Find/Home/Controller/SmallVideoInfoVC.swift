@@ -90,6 +90,8 @@ class SmallVideoInfoVC: UIViewController, UICollectionViewDelegate, UICollection
             self.commentView.NetworkRequest(page: 1)
             self.commentView.commentNumber = cell.mySmallVideoData.video.cn.convertString()
         }).disposed(by: disposeBag)
+        
+
         return cell
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
