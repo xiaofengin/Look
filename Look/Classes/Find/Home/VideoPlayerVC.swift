@@ -48,6 +48,11 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var videoId = ""
     var pageNo = 1
     
+    //隐藏状态栏
+    override var prefersStatusBarHidden: Bool {
+        
+        return true
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
@@ -167,9 +172,9 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 if let collectArray = jsonData["data"]["comments"].arrayObject{
                     
                     self.myCommentArray += collectArray.compactMap({ ContentModel.deserialize(from: $0 as? Dictionary) })
-                    
+                    self.cellHeightArray.removeAll()
                     for (itemModel) in self.myCommentArray{
-                        self.cellHeightArray.removeAll()
+                        
                         self.cellHeightArray.append(itemModel.content.textHeight(fontSize: 16.0, width: Kwidth-105)+85)
                     }
                     

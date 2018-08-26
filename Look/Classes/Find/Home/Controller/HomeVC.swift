@@ -31,11 +31,8 @@ class HomeVC: BaseViewController, UIScrollViewDelegate {
     /// 懒加载 头部
     private lazy var segmentV = segmentView.loadViewFromNib()
     
-    override func viewWillLayoutSubviews() {
-//        isScroll = false;
-//        scrollV.setContentOffset(CGPoint(x: Kwidth, y: 0), animated: false)
 
-    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true

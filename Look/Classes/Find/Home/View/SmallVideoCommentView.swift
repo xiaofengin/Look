@@ -46,9 +46,9 @@ class SmallVideoCommentView: UIView ,UITableViewDataSource, UITableViewDelegate,
                 if let collectArray = jsonData["data"]["comments"].arrayObject{
                     
                     self.myCommentArray = collectArray.compactMap({ ContentModel.deserialize(from: $0 as? Dictionary) })
-                    
+                    self.cellHeightArray.removeAll()
                     for (itemModel) in self.myCommentArray{
-                        self.cellHeightArray.removeAll()
+                        
                         self.cellHeightArray.append(itemModel.content.textHeight(fontSize: 16.0, width: Kwidth-105)+85)
                     }
                     self.tableV.reloadData()

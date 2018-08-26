@@ -69,8 +69,9 @@ class HotNewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource,FS
                     
                     self.hotNewsArray += collectArray.compactMap({ HotNewsModel.deserialize(from: $0 as? Dictionary) })
                     
+                    self.cellHeightArray.removeAll()
                     for item in self.hotNewsArray{
-                        self.cellHeightArray.removeAll()
+                        
                         if item.showType == 1{
                             let titleHight = item.video.title.textHeight(fontSize: 16, width: Kwidth-30-192*Kwidth/640)
                             if titleHight < 126*Kwidth/650{
