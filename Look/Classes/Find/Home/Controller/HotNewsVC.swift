@@ -74,7 +74,7 @@ class HotNewsVC: UIViewController, UITableViewDelegate, UITableViewDataSource,FS
                         
                         if item.showType == 1{
                             let titleHight = item.video.title.textHeight(fontSize: 16, width: Kwidth-30-192*Kwidth/640)
-                            if titleHight < 126*Kwidth/650{
+                            if titleHight < 40{
                                 self.cellHeightArray.append(126*Kwidth/650+24.0 )
                             }else{
                                 self.cellHeightArray.append(titleHight+30+24)

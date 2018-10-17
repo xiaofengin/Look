@@ -62,6 +62,7 @@ class UserInfoVC: UIViewController ,UITableViewDataSource, UITableViewDelegate{
 //        UIApplication.shared.statusBarStyle = .default;
 //         setStatusBarBackgroundColor(color: UIColor.white)
          self.navigationController?.navigationBar.barStyle = .default
+         removePlayer()
     }
     
     override func viewDidLoad() {

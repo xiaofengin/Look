@@ -44,6 +44,9 @@ class MoreSubVC: BaseViewController, UITableViewDelegate, UITableViewDataSource 
          tableV.estimatedRowHeight = 0
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        removePlayer()
+    }
     func MoreSubRequset()  {
         if isLoad {
             NetworkRequest(page: pageNo)
@@ -208,6 +211,8 @@ extension MoreSubVC{
         priorCell = nil
     }
 }
+
+
 extension MoreSubVC: BMPlayerDelegate {
 
     func bmPlayer(player: BMPlayer, playerStateDidChange state: BMPlayerState) {

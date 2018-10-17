@@ -41,7 +41,9 @@ class FindVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
+        removePlayer()
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

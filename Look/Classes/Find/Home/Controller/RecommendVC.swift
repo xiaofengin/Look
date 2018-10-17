@@ -46,6 +46,9 @@ class RecommendVC: UIViewController , UITableViewDelegate, UITableViewDataSource
 
         removePlayer()
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        removePlayer()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
