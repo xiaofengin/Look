@@ -16,7 +16,6 @@ class RecommendVC: UIViewController , UITableViewDelegate, UITableViewDataSource
     // 存储 cell的数据
     var myDataArray = [HotNewsModel]()
     
-    
     @IBOutlet weak var tableV: UITableView!
     var pageNo = 1
     
@@ -29,7 +28,7 @@ class RecommendVC: UIViewController , UITableViewDelegate, UITableViewDataSource
     lazy var player: BMPlayer = BMPlayer(customControlView: VideoPlayerCustomView())
     /// 当前播放的时间
     private var currentTime: TimeInterval = 0
-    
+
     
     
     func recommendRequset()  {
@@ -44,7 +43,7 @@ class RecommendVC: UIViewController , UITableViewDelegate, UITableViewDataSource
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        removePlayer()
+
     }
     override func viewWillDisappear(_ animated: Bool) {
         removePlayer()
@@ -112,6 +111,9 @@ class RecommendVC: UIViewController , UITableViewDelegate, UITableViewDataSource
         
         let cell = tableV.wf_dequeueReusableCell(indexPath: indexPath) as UserTableCell
         cell.myConcern = myDataArray[indexPath.row].video
+        
+        
+        
         cell.playerBut.rx.tap.subscribe(onNext: { [weak self] in
             // 如果有值，说明当前有正在播放的视频
             if let priorCell = self!.priorCell {
@@ -130,7 +132,7 @@ class RecommendVC: UIViewController , UITableViewDelegate, UITableViewDataSource
                 // 把播放器添加到 cell 上
                 self!.addPlayer(on: cell)
             }
-        }).disposed(by: disposeBag)
+        }).disposed(by: cell.disposeBag)
         
         cell.commentBut.rx.tap.subscribe(onNext: { [weak self] in
         
@@ -173,7 +175,7 @@ class RecommendVC: UIViewController , UITableViewDelegate, UITableViewDataSource
             window?.addSubview((self?.videoPlayerV)!)
             self?.priorCell?.showSubviews()
             
-        }).disposed(by: disposeBag)
+        }).disposed(by: cell.disposeBag)
         
         
         cell.userBut.rx.tap.subscribe(onNext: { [weak self] in
@@ -181,7 +183,7 @@ class RecommendVC: UIViewController , UITableViewDelegate, UITableViewDataSource
             vc.hidesBottomBarWhenPushed = true
             vc.userID = "\(cell.myConcern.user.id)"
             self?.navigationController?.pushViewController(vc, animated: true)
-        }).disposed(by: disposeBag)
+        }).disposed(by: cell.disposeBag)
         return cell
     }
     
@@ -204,7 +206,6 @@ class RecommendVC: UIViewController , UITableViewDelegate, UITableViewDataSource
                 cell.showSubviews();
             }
         }
-        
     }
 }
 extension RecommendVC{

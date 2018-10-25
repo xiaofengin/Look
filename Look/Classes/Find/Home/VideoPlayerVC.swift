@@ -66,9 +66,14 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
 //        UIApplication.shared.statusBarStyle = .default;
 //        setStatusBarBackgroundColor(color: UIColor.white)
         self.navigationController?.navigationBar.barStyle = .default
+        removePlayer()
     }
-    
-    
+ 
+    /// 移除播放器
+    private func removePlayer() {
+        player.pause()
+        player.removeFromSuperview()
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -120,6 +125,7 @@ class VideoPlayerVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             let jsonData = JSON(dataDict)
             printCtm(jsonData)
             if jsonData["code"] == 0{
+                self.removePlayer()
                 if let collectDict = jsonData["data"].dictionaryObject{
                     self.userData = MeCollectModel.deserialize(from: collectDict)!
                     

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import RxSwift
 class UserTableCell: UITableViewCell, RegisterCellFromNib {
 
     @IBOutlet weak var mainImageV: UIImageView!
@@ -31,6 +31,13 @@ class UserTableCell: UITableViewCell, RegisterCellFromNib {
     @IBOutlet weak var playerBut: UIButton!
     @IBOutlet weak var userBut: UIButton!
     
+    var disposeBag = DisposeBag()
+    
+    //单元格重用时调用
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
     var myConcern = MeCollectModel(){
         didSet{
             playerBut.kf.setImage(with: URL(string: myConcern.cover), for: .normal)

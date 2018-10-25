@@ -38,10 +38,16 @@ class SmallVideoInfoVC: UIViewController, UICollectionViewDelegate, UICollection
         navigationController?.navigationBar.isHidden = false
         //        UIApplication.shared.statusBarStyle = .default;
         setStatusBarBackgroundColor(color: UIColor.white)
+        removePlayer()
     }
     //隐藏状态栏
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    /// 移除播放器
+    private func removePlayer() {
+        player.pause()
+        player.removeFromSuperview()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
