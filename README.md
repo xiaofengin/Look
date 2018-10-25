@@ -9,5 +9,6 @@
 ![image](gif/66.gif)
 
 # 项目环境
-Xcode9.4 
-swift4.2
+- Xcode9.4 
+- swift4.2
+- 代码有参考杨蒙的swift今日头条项目
