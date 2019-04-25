@@ -7,7 +7,7 @@ target 'Look' do
 
   pod 'Alamofire', '~> 4.7.3'
   pod 'SwiftyJSON', '~> 4.1.0'
-  pod 'HandyJSON', '~> 4.1.1'
+  pod 'HandyJSON', '~> 4.2.1'
   pod 'Kingfisher', '~> 4.8.1'
   pod 'IBAnimatable', '~> 5.1.0'
   pod 'RxSwift', '~> 4.2.0'
