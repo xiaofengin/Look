@@ -9,7 +9,7 @@ target 'Look' do
   pod 'SwiftyJSON', '~> 4.1.0'
   pod 'HandyJSON', '~> 4.2.1'
   pod 'Kingfisher', '~> 4.8.1'
-  pod 'IBAnimatable', '~> 5.1.0'
+  pod 'IBAnimatable', '~> 5.2.1'
   pod 'RxSwift', '~> 4.2.0'
   pod 'RxCocoa', '~> 4.2.0'
 #  pod 'SQLite.swift', '~> 0.11.5'
